@@ -9,22 +9,29 @@ import UIKit
 struct PublicUser {
     let uid : String
     let name : String
-    let friends : [String]
+    var isFollowed: Bool
 }
 
-struct FriendUser {
+struct FollowedUser {
     let uid: String
     let name: String
 }
 
-struct HomeFeed {
+struct Comment {
     let id: String
     let description: String
     var likeCount: Int
     var isLiked: Bool
     let uid: String
     let timestamp: Date
-    
-    //var profileImage: UIImage?
-    //var postImage: UIImage?
+    let postId: String
+}
+
+struct Feed {
+    let id: String
+    let description: String
+    var likeCount: Int
+    var isLiked: Bool
+    let uid: String
+    let timestamp: Date
 }

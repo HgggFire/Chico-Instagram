@@ -35,17 +35,20 @@ class FirebaseCall {
         case alreadyFollowing
         case wasNotFollowed
         case wasNotFollowing
+        case postDoesNotExist
     }
     
     static func sharedInstance() -> FirebaseCall {
         return instance
     }
     
-    func getFriends(ofUser userId: String, completion: @escaping CompletionHandler) {
-        let friendsRef = databaseRef.child("PublicUsers").child(userId).child("friends")
-        friendsRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            if let friends = snapshot.value as? [String: Any] {
-                completion(friends, nil)
+    func getFollowingUsers(ofUser userId: String, completion: @escaping CompletionHandler) {
+        let ref = databaseRef.child("PublicUsers").child(userId).child("followings")
+        ref.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if let followings = snapshot.value as? [String: Any] {
+                completion(followings, nil)
+            } else {
+                completion(nil, FirebaseCallError.pathNotFoundInDatabase)
             }
         })
     }
@@ -241,11 +244,17 @@ class FirebaseCall {
         }
     }
     
-    func createPost(withImage image: UIImage, description: String, completion: @escaping CompletionHandler) {
+    func createOrDeletePost(withImage image: UIImage, description: String, toCreate: Bool, completion: @escaping CompletionHandler) {
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            completion(nil, FirebaseCallError.noUserLoggedIn)
+            return
+        }
+        
+        // create post and add to "Posts" table
         let key = databaseRef.child("Posts").childByAutoId().key
         let timestamp = (Date().timeIntervalSince1970)
-        let userId = Auth.auth().currentUser?.uid
-        let postDict = ["timestamp": timestamp, "likeCount": 0, "uid": userId!, "description": description, "likedUsers": false] as [String : Any]
+        let postDict = ["timestamp": timestamp, "likeCount": 0, "uid": userId, "description": description] as [String : Any]
         databaseRef.child("Posts").child(key).updateChildValues(postDict)
         uploadPostImage(ofId: key, with: image) { (data, err) in
             if err == nil {
@@ -254,6 +263,58 @@ class FirebaseCall {
                 completion(data, err)
             }
         }
+        
+        // add post to user's "posts" list, and increment user's postCount
+        databaseRef.child("PublicUsers").child(userId).runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+            if var userDict = currentData.value as? [String : Any] {
+                var posts: Dictionary<String, Bool>
+                posts = userDict["posts"] as? [String : Bool] ?? [:]
+                var postCount = userDict["postCount"] as? Int ?? 0
+                
+                if toCreate { // creating post. put into posts
+                    postCount += 1
+                    posts[key] = true
+                } else {
+                    guard let _ = posts[key] else {
+                        completion(nil, FirebaseCallError.postDoesNotExist)
+                        return TransactionResult.abort()
+                    }
+                    // delete post
+                    posts.removeValue(forKey: key)
+                    postCount -= 1
+                }
+                
+                userDict["postCount"] = postCount as Any?
+                userDict["posts"] = posts as Any?
+                
+                // Set value and report transaction success
+                currentData.value = userDict
+                completion(nil, nil)
+                return TransactionResult.success(withValue: currentData)
+            }
+            completion(nil, FirebaseCallError.pathNotFoundInDatabase)
+            return TransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func createOrDeleteComment(toPost postId: String, description: String, toCreate: Bool, completion: @escaping CompletionHandler) {
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            completion(nil, FirebaseCallError.noUserLoggedIn)
+            return
+        }
+        
+        // create post and add to "Posts" table
+        let key = databaseRef.child("Posts").child(postId).child("comments").childByAutoId().key
+        let timestamp = (Date().timeIntervalSince1970)
+        let commentDict = ["timestamp": timestamp, "likeCount": 0, "uid": userId, "description": description, "postId": postId] as [String : Any]
+    databaseRef.child("Posts").child(postId).child("comments").child(key).updateChildValues(commentDict)
+        completion(nil, nil)
     }
     
     func likePost(withId postId: String, completion: @escaping CompletionHandler) {
@@ -304,7 +365,18 @@ class FirebaseCall {
         ref.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 completion(dict, nil)
+            } else {
+                
             }
+        })
+    }
+    
+    func getAllComments(ofPost postId: String, completion: @escaping CompletionHandler) {
+        let ref = databaseRef.child("Posts").child(postId).child("comments")
+        ref.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            var commentDict : [String: Any]
+            commentDict = snapshot.value as? [String: Any] ?? [:]
+                completion(commentDict, nil)
         })
     }
     

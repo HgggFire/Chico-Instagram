@@ -21,6 +21,9 @@
 		239A2D1A20032FD9008BBF1E /* SignupEmailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239A2D1920032FD9008BBF1E /* SignupEmailViewController2.swift */; };
 		239A2D1E20035EDB008BBF1E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239A2D1D20035EDB008BBF1E /* ProfileViewController.swift */; };
 		239A2D2020035EED008BBF1E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239A2D1F20035EED008BBF1E /* EditProfileViewController.swift */; };
+		23A45DA22008802C00C347A2 /* ProfileTopviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */; };
+		23A45DA42008911800C347A2 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA32008911800C347A2 /* CommentCell.swift */; };
+		23A45DA62008919B00C347A2 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA52008919B00C347A2 /* CommentViewController.swift */; };
 		23C04209200409D0002E9F79 /* customFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C04208200409D0002E9F79 /* customFacebookButton.swift */; };
 		23C0420B20042820002E9F79 /* FacebookDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */; };
 		23C0420D2004877B002E9F79 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420C2004877B002E9F79 /* FollowingViewController.swift */; };
@@ -53,6 +56,9 @@
 		239A2D1920032FD9008BBF1E /* SignupEmailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEmailViewController2.swift; sourceTree = "<group>"; };
 		239A2D1D20035EDB008BBF1E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		239A2D1F20035EED008BBF1E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopviewCell.swift; sourceTree = "<group>"; };
+		23A45DA32008911800C347A2 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		23A45DA52008919B00C347A2 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		23C04208200409D0002E9F79 /* customFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFacebookButton.swift; sourceTree = "<group>"; };
 		23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookDataFetcher.swift; sourceTree = "<group>"; };
 		23C0420C2004877B002E9F79 /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				239A2D1920032FD9008BBF1E /* SignupEmailViewController2.swift */,
 				2359E8ED20003BEF00C16710 /* TabBarViewController.swift */,
 				2359E8DB2000300100C16710 /* HomeFeedViewController.swift */,
+				23A45DA52008919B00C347A2 /* CommentViewController.swift */,
 				23C0421C2005BA16002E9F79 /* CreatePostViewController.swift */,
 				23C0420C2004877B002E9F79 /* FollowingViewController.swift */,
 				23C0420E2004879F002E9F79 /* AllUsersViewController.swift */,
@@ -120,13 +127,15 @@
 				2359E8E42000300100C16710 /* LaunchScreen.storyboard */,
 				2359E8E72000300100C16710 /* Info.plist */,
 				2359E8EF2002B70C00C16710 /* Variables.swift */,
-				2359E8F92002FBA400C16710 /* MenubarCollectionViewCell.swift */,
 				23C04208200409D0002E9F79 /* customFacebookButton.swift */,
-				23C04210200489DF002E9F79 /* FriendUserCell.swift */,
 				23C0421220048DEF002E9F79 /* Model.swift */,
-				23C0421620049438002E9F79 /* FirebaseCall.swift */,
 				23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */,
+				23C04210200489DF002E9F79 /* FriendUserCell.swift */,
 				23C042182005818D002E9F79 /* HomeFeedCell.swift */,
+				2359E8F92002FBA400C16710 /* MenubarCollectionViewCell.swift */,
+				23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */,
+				23C0421620049438002E9F79 /* FirebaseCall.swift */,
+				23A45DA32008911800C347A2 /* CommentCell.swift */,
 			);
 			path = "Project1-Instagram";
 			sourceTree = "<group>";
@@ -305,10 +314,13 @@
 				2359E8F22002CEA100C16710 /* LoginViewController.swift in Sources */,
 				2359E8F42002CF0200C16710 /* SignupViewController.swift in Sources */,
 				23C0421720049438002E9F79 /* FirebaseCall.swift in Sources */,
+				23A45DA62008919B00C347A2 /* CommentViewController.swift in Sources */,
 				2359E8EE20003BEF00C16710 /* TabBarViewController.swift in Sources */,
 				23C0421320048DEF002E9F79 /* Model.swift in Sources */,
 				2359E8DA2000300100C16710 /* AppDelegate.swift in Sources */,
 				23C042192005818D002E9F79 /* HomeFeedCell.swift in Sources */,
+				23A45DA22008802C00C347A2 /* ProfileTopviewCell.swift in Sources */,
+				23A45DA42008911800C347A2 /* CommentCell.swift in Sources */,
 				2359E8DC2000300100C16710 /* HomeFeedViewController.swift in Sources */,
 				23C0420B20042820002E9F79 /* FacebookDataFetcher.swift in Sources */,
 				239A2D1E20035EDB008BBF1E /* ProfileViewController.swift in Sources */,

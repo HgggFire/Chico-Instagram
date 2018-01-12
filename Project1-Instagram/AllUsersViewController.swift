@@ -14,7 +14,7 @@ class AllUsersViewController: UIViewController {
     @IBOutlet weak var usersTable: UITableView!
     
     var users : [PublicUser] = []
-    var friendsUids : [String] = []
+//    var followingUids : [String] = []
     
     var refreshControl : UIRefreshControl!
     
@@ -33,39 +33,39 @@ class AllUsersViewController: UIViewController {
         usersTable.sectionFooterHeight = 50
     }
     
-    @objc func refreshAction(_ sender: Any) {
-        setupPage()
-    }
     
     func setupPage() {
         let uid = (Auth.auth().currentUser?.uid)!
-        FirebaseCall.sharedInstance().getFriends(ofUser: uid) { (data, error) in
-            if let friendUids = data as? [String: Any] {
-                var uids : [String] = []
-                for (friendUid, _) in friendUids {
-                    uids.append(friendUid)
-                }
-                self.friendsUids = uids
-            }
-        }
+//        FirebaseCall.sharedInstance().getFollowingUsers(ofUser: uid) { (data, error) in
+//            if let followingUserId = data as? [String: Bool] {
+//                var uids : [String] = []
+//                for (friendUid, _) in followingUserId {
+//                    uids.append(friendUid)
+//                }
+//                self.followingUids = uids
+//            }
+//        }
         
         FirebaseCall.sharedInstance().getAllPublicUsersDict(completion: { (data, err) in
+            if err != nil {
+                print()
+                print(err!)
+                return
+            }
             let dict = data as! [String: Any]
             var tempUsers: [PublicUser] = []
-            for (uid, userDict) in dict {
+            for (publicUserId, userDict) in dict {
                
                 if let userDict = userDict as? [String : Any],
-                    let name = userDict["name"] as? String,
-                let friends = userDict["friends"] as? [String: Any] {
-                    var friendsUidArr : [String] = []
-                    for (friend, _) in friends {
-                        friendsUidArr.append(friend)
-                    }
-                    let publicUser = PublicUser(uid: uid, name: name, friends: friendsUidArr)
+                    let name = userDict["name"] as? String {
+                    var followers : [String: Bool]
+                    followers = userDict["followers"] as? [String: Bool] ?? [:]
+                    let followed = followers[uid] ?? false
+                    let publicUser = PublicUser(uid: publicUserId, name: name, isFollowed: followed)
                     tempUsers.append(publicUser)
                 }
             }
-            self.users = tempUsers
+            self.users = tempUsers.sorted(by: {$0.name < $1.name})
             DispatchQueue.main.async {
                 self.usersTable.reloadData()
                 self.refreshControl.endRefreshing()
@@ -73,20 +73,28 @@ class AllUsersViewController: UIViewController {
         })
     }
     
+    
+    @objc func refreshAction(_ sender: Any) {
+        setupPage()
+    }
+    
     @objc func followUser(sender: UIButton) {
         let userTobeFollowed = users[sender.tag].uid
         print("following \(userTobeFollowed)")
         FirebaseCall.sharedInstance().followUnfollowUser(withId: userTobeFollowed, toFollow: true) { (_, error) in
             if let err = error { print("\n\(err)") }
+            
         }
-        friendsUids.append(userTobeFollowed)
-        usersTable.reloadData()
+        users[sender.tag].isFollowed = true
+        //        followingUids.append(userTobeFollowed)
+        usersTable.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
         TWMessageBarManager.sharedInstance().hideAll()
-        TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Friend added succefully!", type: .success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
+        TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Followed succefully!", type: .success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
     }
     
 }
 
+// MARK: - Tableview Delegate
 extension AllUsersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
@@ -102,10 +110,10 @@ extension AllUsersViewController: UITableViewDataSource, UITableViewDelegate {
         cell.cellContainerView.layer.cornerRadius = 15
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width / 2
         cell.profileImageView.clipsToBounds = true
-        
+        cell.profileImageView.image = #imageLiteral(resourceName: "user")
         if thisUser.uid == Auth.auth().currentUser!.uid {
             cell.button.setImage(UIImage(), for: .normal)
-        } else if friendsUids.contains(thisUser.uid) {
+        } else if thisUser.isFollowed { // TODO: think: use thisUser.isFollowed or use followingUids.contains(thisUser.uid). Which one is more efficient?
             let img = #imageLiteral(resourceName: "checked-checkbox")
             cell.button.setImage(img, for: .normal)
             cell.button.isEnabled = false

@@ -15,8 +15,8 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var googleSigninButton: GIDSignInButton!
-    
     @IBOutlet weak var customFbButton: CustomFacebookButton!
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -77,6 +77,26 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
         facebookLoginFirebase(with: token)
     }
     
+    
+    func gotoHomepage() {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        Auth.auth().signIn(withEmail: usernameField.text!, password: pwdField.text!) { (user, error) in
+            if error == nil {TWMessageBarManager.sharedInstance().showMessage(withTitle: "Successful", description: "You have logged in succefully!", type: TWMessageBarMessageType.success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
+                print("successfully logged in")
+                self.gotoHomepage()
+            } else {
+                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: error!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
+                print(error!.localizedDescription)
+                print(error!)
+            }
+        }
+    }
+    
+    // MARK: - Custom Facebook Login functions
     func checkFacebookLoginAndSetName(){
         let parameters = [FacebookDataFetcher.DataType.firstName, FacebookDataFetcher.DataType.lastName]
         
@@ -122,24 +142,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
         }
     }
     
-    func gotoHomepage() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
-        navigationController?.pushViewController(controller, animated: true)
-    }
-
-    @IBAction func loginAction(_ sender: Any) {
-        Auth.auth().signIn(withEmail: usernameField.text!, password: pwdField.text!) { (user, error) in
-            if error == nil {TWMessageBarManager.sharedInstance().showMessage(withTitle: "Successful", description: "You have logged in succefully!", type: TWMessageBarMessageType.success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-                print("successfully logged in")
-                self.gotoHomepage()
-            } else {
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: error!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
-                print(error!.localizedDescription)
-                print(error!)
-            }
-        }
-    }
-    
     //    func setupFacebookLogin() {
     //        let fbLoginBtn = FBSDKLoginButton.init()
     //        fbLoginBtn.frame = CGRect(x: view.frame.width * 0.1, y: googleSigninButton.center.y + 50, width: view.frame.width * 0.8, height: 45)
@@ -151,6 +153,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
     
 }
 
+// MARK: - Google Sign in
 extension LoginViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 //        print("google signed in with \(user.description)")
@@ -174,6 +177,7 @@ extension LoginViewController: GIDSignInDelegate {
     }
 }
 
+// MARK: - Textfield Delegate
 extension LoginViewController : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

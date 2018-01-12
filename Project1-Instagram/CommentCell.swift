@@ -1,23 +1,24 @@
 //
-//  HomeFeedCell.swift
+//  CommentCell.swift
 //  Project1-Instagram
 //
-//  Created by LinChico on 1/9/18.
+//  Created by LinChico on 1/12/18.
 //  Copyright © 2018 RJTCOMPUQUEST. All rights reserved.
 //
 
 import UIKit
 
-class HomeFeedCell: UITableViewCell {
-
-    @IBOutlet weak var commentButton: UIButton!
+class CommentCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var timestampLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+   
+    @IBAction func replyAction(_ sender: Any) {
+    }
+    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBAction func replyButtonAction(_ sender: Any) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

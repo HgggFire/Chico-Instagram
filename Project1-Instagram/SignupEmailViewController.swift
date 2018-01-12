@@ -51,6 +51,7 @@ class SignupEmailViewController: UIViewController {
     }
 }
 
+// MARK: - ConllectionView Delegate
 extension SignupEmailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -75,6 +76,7 @@ extension SignupEmailViewController: UICollectionViewDataSource, UICollectionVie
     
 }
 
+// MARK: - TextField delegate
 extension SignupEmailViewController : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
