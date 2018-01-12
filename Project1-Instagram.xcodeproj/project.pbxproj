@@ -26,7 +26,7 @@
 		23C0420D2004877B002E9F79 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420C2004877B002E9F79 /* FollowingViewController.swift */; };
 		23C0420F2004879F002E9F79 /* AllUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420E2004879F002E9F79 /* AllUsersViewController.swift */; };
 		23C04211200489DF002E9F79 /* FriendUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C04210200489DF002E9F79 /* FriendUserCell.swift */; };
-		23C0421320048DEF002E9F79 /* PublicUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0421220048DEF002E9F79 /* PublicUser.swift */; };
+		23C0421320048DEF002E9F79 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0421220048DEF002E9F79 /* Model.swift */; };
 		23C0421520049262002E9F79 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0421420049262002E9F79 /* ChatViewController.swift */; };
 		23C0421720049438002E9F79 /* FirebaseCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0421620049438002E9F79 /* FirebaseCall.swift */; };
 		23C042192005818D002E9F79 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C042182005818D002E9F79 /* HomeFeedCell.swift */; };
@@ -58,7 +58,7 @@
 		23C0420C2004877B002E9F79 /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		23C0420E2004879F002E9F79 /* AllUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersViewController.swift; sourceTree = "<group>"; };
 		23C04210200489DF002E9F79 /* FriendUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendUserCell.swift; sourceTree = "<group>"; };
-		23C0421220048DEF002E9F79 /* PublicUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicUser.swift; sourceTree = "<group>"; };
+		23C0421220048DEF002E9F79 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		23C0421420049262002E9F79 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23C0421620049438002E9F79 /* FirebaseCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCall.swift; sourceTree = "<group>"; };
 		23C042182005818D002E9F79 /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				2359E8D92000300100C16710 /* AppDelegate.swift */,
-				23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */,
 				2359E8F12002CEA100C16710 /* LoginViewController.swift */,
 				2359E8F32002CF0200C16710 /* SignupViewController.swift */,
 				2359E8F52002CF1400C16710 /* SignupEmailViewController.swift */,
@@ -124,8 +123,9 @@
 				2359E8F92002FBA400C16710 /* MenubarCollectionViewCell.swift */,
 				23C04208200409D0002E9F79 /* customFacebookButton.swift */,
 				23C04210200489DF002E9F79 /* FriendUserCell.swift */,
-				23C0421220048DEF002E9F79 /* PublicUser.swift */,
+				23C0421220048DEF002E9F79 /* Model.swift */,
 				23C0421620049438002E9F79 /* FirebaseCall.swift */,
+				23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */,
 				23C042182005818D002E9F79 /* HomeFeedCell.swift */,
 			);
 			path = "Project1-Instagram";
@@ -306,7 +306,7 @@
 				2359E8F42002CF0200C16710 /* SignupViewController.swift in Sources */,
 				23C0421720049438002E9F79 /* FirebaseCall.swift in Sources */,
 				2359E8EE20003BEF00C16710 /* TabBarViewController.swift in Sources */,
-				23C0421320048DEF002E9F79 /* PublicUser.swift in Sources */,
+				23C0421320048DEF002E9F79 /* Model.swift in Sources */,
 				2359E8DA2000300100C16710 /* AppDelegate.swift in Sources */,
 				23C042192005818D002E9F79 /* HomeFeedCell.swift in Sources */,
 				2359E8DC2000300100C16710 /* HomeFeedViewController.swift in Sources */,
