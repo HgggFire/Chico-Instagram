@@ -15,6 +15,7 @@ class SignupEmailViewController2: UIViewController {
     
     var email: String!
 
+    @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     
@@ -28,11 +29,12 @@ class SignupEmailViewController2: UIViewController {
         hideKeyboardWhenTappedAround()
         usersTableRef = Database.database().reference().child("Users")
         publicUsersTableRef = Database.database().reference().child("PublicUsers")
+        signupButton.layer.cornerRadius = 5
     }
 
     @IBAction func signupAction(_ sender: Any) {
-        let pwd = pwdField.text!
-        let name = nameField.text!
+        let pwd = pwdField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let name = nameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if name.count == 0 {
             TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign up Failed", description: "Name cannot be empty", type: .error, duration: 5.0)

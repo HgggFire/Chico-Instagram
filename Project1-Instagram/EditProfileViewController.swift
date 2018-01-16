@@ -32,6 +32,10 @@ class EditProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupPage()
     }
     
@@ -75,9 +79,10 @@ class EditProfileViewController: UIViewController {
     }
     
     func uploadImage() {
-        if let img = imageView.image {
-            let uid = Auth.auth().currentUser?.uid
-            FirebaseCall.sharedInstance().uploadProfileImage(ofUser: uid!, with: img, completion: { (meta, error) in
+        if let img = imageView.image,
+            let uid = Auth.auth().currentUser?.uid {
+            profileImageDict[uid] = img
+            FirebaseCall.sharedInstance().uploadProfileImage(ofUser: uid, with: img, completion: { (meta, error) in
                 if (error != nil) {
                     print("\nUpload Profile Image Error: \(error!)")
                 } else {
@@ -87,26 +92,37 @@ class EditProfileViewController: UIViewController {
             })
         }
     }
-
-    @IBAction func doneAction(_ sender: Any) {
+    
+    @IBAction func cancelAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
         
-        if let user = Auth.auth().currentUser {
-            // set database reference
-            dbRef = Database.database().reference()
-            let userTable = dbRef!.child("Users").child(user.uid)
-            userTable.updateChildValues(["name": nameField.text])
-            
-            // set storage reference
-            storageRef = Storage.storage().reference()
-            
-        } else {
+        guard let user = Auth.auth().currentUser else {
             TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: "Not logged in", type: .error, duration: 4.0)
-            navigationController?.popToRootViewController(animated: true)
+            return
         }
+        guard let newName = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: "Name not valid", type: .error, duration: 4.0)
+            return
+        }
+        
+        if newName.count == 0 {
+            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: "Name cannot be empty", type: .error, duration: 4.0)
+            return
+        }
+        
+        userNameDict[user.uid] = newName
         delegate?.didUpdate()
+        FirebaseCall.sharedInstance().updateUserName(ofUser: user.uid, name: newName)
+        
+        uploadImage()
+        
         TWMessageBarManager.sharedInstance().hideAll()
         TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Profile edited succefully!", type: .success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -118,7 +134,6 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         // We always expect `imagePickerController(:didFinishPickingMediaWithInfo:)` to supply the original image.
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = image
-        uploadImage()
     }
     
     //imagePickerController delegate methods

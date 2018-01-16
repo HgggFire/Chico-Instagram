@@ -10,10 +10,16 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var customFbButton: WhiteCustomFacebookButton!
+    @IBOutlet weak var bottomView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        bottomView.addBorder(toSide: .Top, withColor: UIColor.lightGray.cgColor, andThickness: 1)
+        setupCustomFbButton(customFacebookLoginButton: customFbButton)
+        customFbButton.layer.cornerRadius = 5
     }
     
     @IBAction func gotoLoginView(_ sender: Any) {

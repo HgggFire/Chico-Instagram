@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class CustomFacebookButton : UIButton {
     
     var textLabel: UILabel?
@@ -19,6 +20,16 @@ class CustomFacebookButton : UIButton {
             fbIconImageView.image = UIImage(named: "fbIcon")?.withRenderingMode(.alwaysTemplate)
             fbIconImageView.tintColor = isHighlighted ? fbBlue : normalBlue
             myTextLabel.textColor = isHighlighted ? fbBlue: normalBlue
+        }
+    }
+}
+
+class WhiteCustomFacebookButton : CustomFacebookButton {
+    override var isHighlighted : Bool {
+        didSet{
+            fbIconImageView.image = UIImage(named: "fbIcon")?.withRenderingMode(.alwaysTemplate)
+            fbIconImageView.tintColor = isHighlighted ? alphaWhite : UIColor.white
+            myTextLabel.textColor = isHighlighted ? alphaWhite : UIColor.white
         }
     }
 }

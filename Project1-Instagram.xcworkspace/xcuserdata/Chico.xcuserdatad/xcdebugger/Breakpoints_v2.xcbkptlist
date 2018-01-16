@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.39569"
+            timestampString = "537832354.282804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
             <Locations>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.395822"
+            timestampString = "537832354.283973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.395907"
+            timestampString = "537832354.2841181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.3959939"
+            timestampString = "537832354.284219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/AllUsersViewController.swift"
-            timestampString = "537442745.396149"
+            timestampString = "537469806.380893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/AllUsersViewController.swift"
-            timestampString = "537442745.396233"
+            timestampString = "537469806.381009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -154,12 +154,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/AllUsersViewController.swift"
-                  timestampString = "537441526.986848"
+                  timestampString = "537828169.01639"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "49"
                   endingLineNumber = "49"
-                  offsetFromSymbolStart = "222">
+                  offsetFromSymbolStart = "248">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -169,12 +169,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/AllUsersViewController.swift"
-                  timestampString = "537441526.991707"
+                  timestampString = "537828169.018489"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "50"
                   endingLineNumber = "50"
-                  offsetFromSymbolStart = "46">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/AllUsersViewController.swift"
-            timestampString = "537442745.396311"
+            timestampString = "537469806.381115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/HomeFeedViewController.swift"
-            timestampString = "537442745.396486"
+            timestampString = "537832354.284544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "loadPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/HomeFeedViewController.swift"
-            timestampString = "537442745.397115"
+            timestampString = "537832354.284694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "loadPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/HomeFeedViewController.swift"
-            timestampString = "537442745.397505"
+            timestampString = "537832354.284819"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "loadPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/HomeFeedViewController.swift"
-            timestampString = "537442745.397863"
+            timestampString = "537832354.28495"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "addFeedAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/HomeFeedViewController.swift"
-            timestampString = "537442745.398294"
+            timestampString = "537832354.285042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,13 +314,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.398692"
+            timestampString = "537832354.2851551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "uploadPostImage(ofId:with:completion:)"
-            landmarkType = "7">
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "FirebaseCall"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -330,12 +330,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.033173"
+                  timestampString = "537828169.023422"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "242"
                   endingLineNumber = "242"
-                  offsetFromSymbolStart = "41">
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -345,12 +345,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.035828"
+                  timestampString = "537828169.025483"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "243"
                   endingLineNumber = "243"
-                  offsetFromSymbolStart = "29">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.398818"
+            timestampString = "537832354.285242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
             <Locations>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.398966"
+            timestampString = "537832354.285326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.399111"
+            timestampString = "537832354.285411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.399245"
+            timestampString = "537832354.285494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "fetchFacebookProfile()"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,59 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.399368"
+            timestampString = "537832354.2855901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "likePost(withId:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.399483"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "likePost(withId:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.399572"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
-            landmarkName = "dislikePost(withId:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.3997459"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "likePost(withId:completion:)"
             landmarkType = "7">
             <Locations>
@@ -522,29 +474,45 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.069335"
+                  timestampString = "537828169.030303"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "324"
-                  endingLineNumber = "324"
-                  offsetFromSymbolStart = "951">
+                  startingLineNumber = "321"
+                  endingLineNumber = "321"
+                  offsetFromSymbolStart = "40">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Project1_Instagram.FirebaseCall.likePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Project1_Instagram.FirebaseCall.likePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.071653"
+                  timestampString = "537828169.032457"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "324"
-                  endingLineNumber = "324"
-                  offsetFromSymbolStart = "2622">
+                  startingLineNumber = "321"
+                  endingLineNumber = "321"
+                  offsetFromSymbolStart = "940">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/FirebaseCall.swift"
+            timestampString = "537832354.285699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "likePost(withId:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -554,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.399861"
+            timestampString = "537832354.285804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "dislikePost(withId:completion:)"
             landmarkType = "7">
             <Locations>
@@ -570,27 +538,27 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.080038"
+                  timestampString = "537828169.036986"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "346"
-                  endingLineNumber = "346"
-                  offsetFromSymbolStart = "951">
+                  startingLineNumber = "342"
+                  endingLineNumber = "342"
+                  offsetFromSymbolStart = "40">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Project1_Instagram.FirebaseCall.dislikePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Project1_Instagram.FirebaseCall.dislikePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
-                  timestampString = "537441527.083297"
+                  timestampString = "537828169.039079"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "346"
-                  endingLineNumber = "346"
-                  offsetFromSymbolStart = "2543">
+                  startingLineNumber = "342"
+                  endingLineNumber = "342"
+                  offsetFromSymbolStart = "940">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -602,11 +570,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.399968"
+            timestampString = "537832354.285912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "likePost(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/FirebaseCall.swift"
+            timestampString = "537832354.286006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "dislikePost(withId:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,7 +602,39 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.400082"
+            timestampString = "537832354.286072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
+            landmarkName = "dislikePost(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/FirebaseCall.swift"
+            timestampString = "537832354.286188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
+            landmarkName = "dislikePost(withId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/FirebaseCall.swift"
+            timestampString = "537832354.2862951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "350"
@@ -634,13 +650,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.400156"
+            timestampString = "537832354.286389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "354"
             endingLineNumber = "354"
-            landmarkName = "dislikePost(withId:completion:)"
-            landmarkType = "7">
+            landmarkName = "FirebaseCall"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -650,29 +666,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.400251"
+            timestampString = "537832354.286494"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
             landmarkName = "dislikePost(withId:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/FirebaseCall.swift"
-            timestampString = "537442745.400351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "dislikePost(withId:completion:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project1_Instagram.FirebaseCall.dislikePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Project1-Instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
+                  timestampString = "537828169.066965"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "344"
+                  endingLineNumber = "344"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Project1_Instagram.FirebaseCall.dislikePost(withId: Swift.String, completion: (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Project1-Instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FirebaseCall.swift"
+                  timestampString = "537828169.0690711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "345"
+                  endingLineNumber = "345"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -714,7 +746,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FollowingViewController.swift"
-            timestampString = "537442745.400547"
+            timestampString = "537829083.63432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -730,7 +762,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FollowingViewController.swift"
-            timestampString = "537442745.400671"
+            timestampString = "537829083.634376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
@@ -746,12 +778,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FollowingViewController.swift"
-                  timestampString = "537441527.139557"
+                  timestampString = "537828169.079205"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
                   endingLineNumber = "48"
-                  offsetFromSymbolStart = "1210">
+                  offsetFromSymbolStart = "956">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -761,12 +793,12 @@
                   moduleName = "Project1-Instagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/FollowingViewController.swift"
-                  timestampString = "537441527.141737"
+                  timestampString = "537828169.081306"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
                   endingLineNumber = "45"
-                  offsetFromSymbolStart = "61">
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -778,7 +810,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FollowingViewController.swift"
-            timestampString = "537442745.400786"
+            timestampString = "537829083.63442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -794,7 +826,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/FollowingViewController.swift"
-            timestampString = "537442745.400889"
+            timestampString = "537829083.634464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -806,111 +838,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.401021"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.401119"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.40122"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.40133"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.401406"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project1-Instagram/ProfileViewController.swift"
-            timestampString = "537442745.401582"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "setupPage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.401742"
+            timestampString = "537832354.286918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "loadPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.402346"
+            timestampString = "537832354.287575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "loadPage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -938,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.402889"
+            timestampString = "537832354.288069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "postButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -954,13 +890,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.403347"
+            timestampString = "537832354.288601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "postButtonAction(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project1_Instagram.CommentViewController.postButtonAction(__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Project1-Instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/CommentViewController.swift"
+                  timestampString = "537828169.131984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Project1_Instagram.CommentViewController.postButtonAction(__ObjC.UIButton) -&gt; ()"
+                  moduleName = "Project1-Instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Chico/Documents/RJT_iOS/Project1-Instagram/Project1-Instagram/CommentViewController.swift"
+                  timestampString = "537828169.134155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -970,11 +938,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.403803"
+            timestampString = "537832354.289252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "keyboardWillShow(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -986,12 +954,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project1-Instagram/CommentViewController.swift"
-            timestampString = "537442745.404148"
+            timestampString = "537832354.289816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "keyboardWillHide(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/HomeFeedViewController.swift"
+            timestampString = "537832354.2904201"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/HomeFeedViewController.swift"
+            timestampString = "537832354.290617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project1-Instagram/EditProfileViewController.swift"
+            timestampString = "537832354.290804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "presentPhotoPicker(sourceType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

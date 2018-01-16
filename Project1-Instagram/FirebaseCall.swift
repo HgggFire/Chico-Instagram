@@ -17,10 +17,6 @@ class FirebaseCall {
     var databaseRef : DatabaseReference!
     var storageRef: StorageReference!
     
-    var profileImageDict : [String: UIImage] = [:]
-    var postImageDict : [String: UIImage] = [:]
-    var userNameDict : [String: String] = [:]
-    
     private init () {
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
@@ -165,11 +161,11 @@ class FirebaseCall {
         if let name = userNameDict[uid] {
             completion(name, nil)
         } else {
-            databaseRef.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            databaseRef.child("PublicUsers").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 if let value = snapshot.value as? [String: Any],
                     let name = value["name"] as? String  {
-                    self.userNameDict[uid] = name
+                    userNameDict[uid] = name
                     completion(name, nil)
                 }
                 // ...
@@ -201,7 +197,7 @@ class FirebaseCall {
         } else {
             getImage(inDatabase: "UserImage", ofId: userId) { (data, err) in
                 if err == nil {
-                    self.profileImageDict[userId] = data as? UIImage
+                    profileImageDict[userId] = data as? UIImage
                 }
                 completion(data, err)
             }
@@ -214,7 +210,7 @@ class FirebaseCall {
         } else {
             getImage(inDatabase: "PostImage", ofId: postId) { (data, err) in
                 if err == nil {
-                    self.postImageDict[postId] = data as? UIImage
+                    postImageDict[postId] = data as? UIImage
                 }
                 completion(data, err)
             }
@@ -390,4 +386,10 @@ class FirebaseCall {
         return UIImage()
     }
     
+    
+    func updateUserName(ofUser uid: String, name: String) {
+        // set database reference
+        let ref = databaseRef.child("PublicUsers").child(uid).child("name")
+        ref.setValue(name)
+    }
 }

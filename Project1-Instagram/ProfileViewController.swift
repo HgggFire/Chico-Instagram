@@ -33,10 +33,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let _ = FBSDKAccessToken.current() {
-//            fetchFacebookProfile()
-//        }
-        
         setupRefreshControl()
         profileTableView.tableFooterView = UIView()
     }
@@ -76,6 +72,7 @@ class ProfileViewController: UIViewController {
                     self.followingNum = "\(followingCount)"
                     self.postNum = "\(postCount)"
                     DispatchQueue.main.async {
+                        self.navigationItem.title = name
                         self.profileTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
                         self.refreshControl.endRefreshing()
                     }
@@ -86,7 +83,7 @@ class ProfileViewController: UIViewController {
             
             // set storage reference
             storageRef = Storage.storage().reference()
-            getImage()
+            self.getImage()
             
         } else {
             TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: "Not logged in", type: .error, duration: 4.0)
@@ -115,32 +112,6 @@ class ProfileViewController: UIViewController {
         
     }
     
-    // TODO: after implementing custom facebook login/logout, remove this piece if
-    /*
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"]).start { (connection, result, error) in
-    
-                if error != nil {
-                    print (error!)
-                    return
-                }
-                let resultDict = result as! [String: Any]
-                print(resultDict)
-    //            if let email = resultDict["email"] as? String {
-    //                self.emailLabel.text = email
-    //            }
-    
-                if let picture = resultDict["picture"] as? [String: Any], let data = picture["data"] as? [String: Any], let url = data["url"] as? String, let imageURL = URL(string: url), let imageData = NSData(contentsOf: imageURL) as Data?{
-                    self.fbImage = UIImage(data: imageData)
-                }
-    
-                if let fn = resultDict["first_name"] as? String,
-                    let ln = resultDict["last_name"] as? String{
-                    self.fbName = "\(fn) \(ln)"
-                }
-            }
-    */
-    
-    // TODO: replace with FirebaseCall method
     func getImage() {
         let userId = Auth.auth().currentUser?.uid
         FirebaseCall.sharedInstance().getProfileImage(ofUser: userId!) { (data, err) in
@@ -148,15 +119,6 @@ class ProfileViewController: UIViewController {
                 self.profileImage = (data as! UIImage)
             } else {
                 print(err!)
-            
-                if let facebookImage = self.fbImage {
-                    self.profileImage = self.fbImage
-                    FirebaseCall.sharedInstance().uploadProfileImage(ofUser: userId!, with: facebookImage) { (data, err) in
-                            if err != nil {
-                                print(err!)
-                        }
-                    }
-                }
             }
         }
     }

@@ -10,7 +10,6 @@ import UIKit
 
 class MenubarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var bottomViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var myBottomLineView: UIView!
     
     override var isSelected: Bool {
@@ -22,3 +21,15 @@ class MenubarCollectionViewCell: UICollectionViewCell {
     
 }
 
+class ResetMenubarCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var myBottomLineView: UIView!
+    
+    override var isSelected: Bool {
+        didSet{
+            myBottomLineView.backgroundColor = isSelected ? UIColor.white : alphaWhite
+            myLabel.textColor = isSelected ? UIColor.white : alphaWhite
+        }
+    }
+    
+}

@@ -25,6 +25,17 @@ class HomeFeedViewController: UIViewController {
         homeFeedTable.tableFooterView = UIView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: instagtamFont]
+        print(navigationController?.navigationBar.titleTextAttributes)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: instagtamFont]
+    }
+    
     func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl.isEnabled = true

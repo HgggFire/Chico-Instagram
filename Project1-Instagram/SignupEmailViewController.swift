@@ -12,11 +12,13 @@ class SignupEmailViewController: UIViewController {
     @IBOutlet weak var centerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var emailAddressView: UIView!
     @IBOutlet weak var  emailTextfield : UITextField!
     
     @IBOutlet weak var phoneView: UIView!
     
+    @IBOutlet weak var bottomView: UIView!
     let titles = ["Email address", "Phone"]
     
     override func viewDidLoad() {
@@ -24,6 +26,8 @@ class SignupEmailViewController: UIViewController {
 
         hideKeyboardWhenTappedAround()
         setupCollectionLayout()
+        nextButton.layer.cornerRadius = 5
+        bottomView.addBorder(toSide: .Top, withColor: UIColor.lightGray.cgColor, andThickness: 1)
     }
     
     func setupCollectionLayout() {
@@ -46,7 +50,7 @@ class SignupEmailViewController: UIViewController {
     
     @IBAction func emailNextButtonAction(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "signupemailvc2") as! SignupEmailViewController2
-        controller.email = emailTextfield.text
+        controller.email = emailTextfield.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

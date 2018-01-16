@@ -17,6 +17,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
     
+    @IBOutlet weak var commentView: UIView!
     var comments: [Comment] = []
     var refreshControl : UIRefreshControl!
     var postId: String!
@@ -28,6 +29,7 @@ class CommentViewController: UIViewController {
         self.refreshControl.beginRefreshing()
         commentTable.tableFooterView = UIView()
         setupPage()
+        
 //        hideKeyboardWhenTappedAround()
         // view move up as keyboard shows
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -37,6 +39,7 @@ class CommentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AlNile", size: 17.0)! ]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,6 +83,8 @@ class CommentViewController: UIViewController {
     }
     
     func setupPage() {
+        navigationItem.title = "Comments"
+        
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
         
@@ -87,6 +92,10 @@ class CommentViewController: UIViewController {
         
         bottomView.layer.borderColor = UIColor.darkGray.cgColor
         bottomView.layer.borderWidth = 0.5
+        
+        commentView.layer.cornerRadius = commentView.frame.height / 2
+//        commentView.layer.
+        
         loadPage()
     }
     
@@ -148,7 +157,7 @@ class CommentViewController: UIViewController {
     }
     
     @IBAction func postButtonAction(_ sender: UIButton) {
-        let commentText = commentTextField.text
+        let commentText = commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         FirebaseCall.sharedInstance().createOrDeleteComment(toPost: postId, description: commentText!, toCreate: true) { (data, err) in
             if err != nil {
                 print()

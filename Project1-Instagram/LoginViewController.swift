@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseMessaging
 import TWMessageBarManager
 import GoogleSignIn
 import FBSDKLoginKit
@@ -17,6 +18,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
     @IBOutlet weak var googleSigninButton: GIDSignInButton!
     @IBOutlet weak var customFbButton: CustomFacebookButton!
     
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -47,6 +49,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
             gotoHomepage()
         }
         loginButton.layer.cornerRadius = 5
+        bottomView.addBorder(toSide: .Top, withColor: UIColor.black.cgColor, andThickness: 2)
+        bottomView.addBorder(toSide: .Bottom, withColor: UIColor.black.cgColor, andThickness: 2)
+        bottomView.addBorder(toSide: .Left, withColor: UIColor.black.cgColor, andThickness: 2)
+        bottomView.addBorder(toSide: .Right, withColor: UIColor.black.cgColor, andThickness: 2)
         
         googleSigninButton.style = .wide
         googleSigninButton.layer.cornerRadius = 5
@@ -65,28 +71,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
         customFbButton.isHighlighted = false
         customFbButton.myTextLabel.text = "Continue with Facebook"
         if let _ = FBSDKAccessToken.current() {
-            checkFacebookLoginAndSetName()
+            checkFacebookLoginAndSetName(customFacebookLoginButton: customFbButton)
             customFbButton.addTarget(self, action: #selector(loginFirebaseWithCurrentFbToken), for: .touchUpInside)
         } else {
             customFbButton.addTarget(self, action: #selector(fbManagerLogin), for: .touchUpInside)
         }
     }
     
-    @objc func loginFirebaseWithCurrentFbToken() {
-        let token = FBSDKAccessToken.current()!
-        facebookLoginFirebase(with: token)
-    }
-    
-    
-    func gotoHomepage() {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
     @IBAction func loginAction(_ sender: Any) {
-        Auth.auth().signIn(withEmail: usernameField.text!, password: pwdField.text!) { (user, error) in
+        Auth.auth().signIn(withEmail: usernameField.text!.trimmingCharacters(in: .whitespacesAndNewlines), password: pwdField.text!.trimmingCharacters(in: .whitespacesAndNewlines)) { (user, error) in
             if error == nil {TWMessageBarManager.sharedInstance().showMessage(withTitle: "Successful", description: "You have logged in succefully!", type: TWMessageBarMessageType.success, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
                 print("successfully logged in")
+                
                 self.gotoHomepage()
             } else {
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: error!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
@@ -95,61 +91,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
             }
         }
     }
-    
-    // MARK: - Custom Facebook Login functions
-    func checkFacebookLoginAndSetName(){
-        let parameters = [FacebookDataFetcher.DataType.firstName, FacebookDataFetcher.DataType.lastName]
-        
-        FacebookDataFetcher.sharedInstance().fetchFacebookData(parameters: parameters) { (data, err) in
-            if err != nil {
-                print (err!)
-                return
-            }
-            let resultDict = data as! [String: Any]
-            if let fn = resultDict["first_name"] as? String,
-                let ln = resultDict["last_name"] as? String{
-                self.customFbButton.myTextLabel.text = "Continue as \(fn) \(ln)"
-            }
-        }
-    }
-    
-    @objc func fbManagerLogin() {
-        FBSDKLoginManager().logIn(withReadPermissions: ["email"], from: self) { (result, err) in
-            if err == nil {
-                TWMessageBarManager.sharedInstance().hideAll()
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have logged in with Facebook succefully!", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-                self.facebookLoginFirebase(with: FBSDKAccessToken.current())
-            } else {
-                TWMessageBarManager.sharedInstance().hideAll()
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: err!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
-                print("FB ERROR: \(err!)")
-            }
-        }
-    }
-    func facebookLoginFirebase(with token: FBSDKAccessToken) {
-        let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if error == nil {
-                TWMessageBarManager.sharedInstance().hideAll()
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have logged in with Facebook succefully!", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-                print("successfully logged in with Facebook")
-                self.gotoHomepage()
-            } else {
-                TWMessageBarManager.sharedInstance().hideAll()
-                TWMessageBarManager.sharedInstance().showMessage(withTitle: "Facebook Sign in failed", description: error!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
-                print("FB ERROR: \(error!)")
-            }
-        }
-    }
-    
-    //    func setupFacebookLogin() {
-    //        let fbLoginBtn = FBSDKLoginButton.init()
-    //        fbLoginBtn.frame = CGRect(x: view.frame.width * 0.1, y: googleSigninButton.center.y + 50, width: view.frame.width * 0.8, height: 45)
-    //        fbLoginBtn.delegate = self
-    //        fbLoginBtn.readPermissions = ["email"]
-    ////        view.addSubview(fbLoginBtn)
-    //
-    //    }
     
 }
 
@@ -168,8 +109,7 @@ extension LoginViewController: GIDSignInDelegate {
         Auth.auth().signIn(with: credential) { (user, error) in
             if error == nil {
                 print("signed in with google")
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
-                self.navigationController?.pushViewController(controller, animated: true)
+                self.gotoHomepage()
             } else {
                 print(error!)
             }
@@ -184,43 +124,3 @@ extension LoginViewController : UITextFieldDelegate{
         return true
     }
 }
-
-// Put this piece of code anywhere you like
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-//extension LoginViewController: FBSDKLoginButtonDelegate {
-//    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-//        print("did complete with")
-//        if error == nil {
-//            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have logged in with Facebook succefully!", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-//            facebookLoginFirebase(with: FBSDKAccessToken.current())
-//        } else {
-//            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: error!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
-//            print("FB ERROR: \(error!)")
-//        }
-//    }
-//
-//    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-//        print("did log out")
-//        TWMessageBarManager.sharedInstance().showMessage(withTitle: "Logout", description: "Facebook Logged out", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-//    }
-//
-//    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
-//        print("will log in")
-//        TWMessageBarManager.sharedInstance().showMessage(withTitle: "FB Will Login", description: "Y", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-//        return true
-//    }
-//}
-
-
-

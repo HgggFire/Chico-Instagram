@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234AB90F200AD1B600040DC3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234AB90E200AD1B600040DC3 /* Extensions.swift */; };
 		2359E8DA2000300100C16710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359E8D92000300100C16710 /* AppDelegate.swift */; };
 		2359E8DC2000300100C16710 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359E8DB2000300100C16710 /* HomeFeedViewController.swift */; };
 		2359E8E12000300100C16710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359E8DF2000300100C16710 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		23A45DA22008802C00C347A2 /* ProfileTopviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */; };
 		23A45DA42008911800C347A2 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA32008911800C347A2 /* CommentCell.swift */; };
 		23A45DA62008919B00C347A2 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A45DA52008919B00C347A2 /* CommentViewController.swift */; };
+		23B34093200960FC0048E11B /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B34092200960FC0048E11B /* ResetPasswordViewController.swift */; };
 		23C04209200409D0002E9F79 /* customFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C04208200409D0002E9F79 /* customFacebookButton.swift */; };
 		23C0420B20042820002E9F79 /* FacebookDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */; };
 		23C0420D2004877B002E9F79 /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0420C2004877B002E9F79 /* FollowingViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		08405E1436B948FEE459976C /* Pods-Project1-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-Instagram/Pods-Project1-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		2310BFA1200E7DEB00D70E2C /* Project1-Instagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project1-Instagram.entitlements"; sourceTree = "<group>"; };
+		234AB90E200AD1B600040DC3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2359E8D62000300100C16710 /* Project1-Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project1-Instagram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2359E8D92000300100C16710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2359E8DB2000300100C16710 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTopviewCell.swift; sourceTree = "<group>"; };
 		23A45DA32008911800C347A2 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		23A45DA52008919B00C347A2 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		23B34092200960FC0048E11B /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		23C04208200409D0002E9F79 /* customFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customFacebookButton.swift; sourceTree = "<group>"; };
 		23C0420A20042820002E9F79 /* FacebookDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookDataFetcher.swift; sourceTree = "<group>"; };
 		23C0420C2004877B002E9F79 /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +112,10 @@
 		2359E8D82000300100C16710 /* Project1-Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				2310BFA1200E7DEB00D70E2C /* Project1-Instagram.entitlements */,
 				2359E8D92000300100C16710 /* AppDelegate.swift */,
 				2359E8F12002CEA100C16710 /* LoginViewController.swift */,
+				23B34092200960FC0048E11B /* ResetPasswordViewController.swift */,
 				2359E8F32002CF0200C16710 /* SignupViewController.swift */,
 				2359E8F52002CF1400C16710 /* SignupEmailViewController.swift */,
 				239A2D1920032FD9008BBF1E /* SignupEmailViewController2.swift */,
@@ -136,6 +143,7 @@
 				23A45DA12008802C00C347A2 /* ProfileTopviewCell.swift */,
 				23C0421620049438002E9F79 /* FirebaseCall.swift */,
 				23A45DA32008911800C347A2 /* CommentCell.swift */,
+				234AB90E200AD1B600040DC3 /* Extensions.swift */,
 			);
 			path = "Project1-Instagram";
 			sourceTree = "<group>";
@@ -193,6 +201,14 @@
 					2359E8D52000300100C16710 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -242,6 +258,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/TWMessageBarManager/TWMessageBarManager.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -254,6 +272,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TWMessageBarManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -313,6 +333,7 @@
 				23C0420D2004877B002E9F79 /* FollowingViewController.swift in Sources */,
 				2359E8F22002CEA100C16710 /* LoginViewController.swift in Sources */,
 				2359E8F42002CF0200C16710 /* SignupViewController.swift in Sources */,
+				23B34093200960FC0048E11B /* ResetPasswordViewController.swift in Sources */,
 				23C0421720049438002E9F79 /* FirebaseCall.swift in Sources */,
 				23A45DA62008919B00C347A2 /* CommentViewController.swift in Sources */,
 				2359E8EE20003BEF00C16710 /* TabBarViewController.swift in Sources */,
@@ -326,6 +347,7 @@
 				239A2D1E20035EDB008BBF1E /* ProfileViewController.swift in Sources */,
 				2359E8FA2002FBA400C16710 /* MenubarCollectionViewCell.swift in Sources */,
 				239A2D2020035EED008BBF1E /* EditProfileViewController.swift in Sources */,
+				234AB90F200AD1B600040DC3 /* Extensions.swift in Sources */,
 				2359E8F02002B70C00C16710 /* Variables.swift in Sources */,
 				239A2D1A20032FD9008BBF1E /* SignupEmailViewController2.swift in Sources */,
 				23C0421520049262002E9F79 /* ChatViewController.swift in Sources */,
@@ -467,8 +489,10 @@
 			baseConfigurationReference = 08405E1436B948FEE459976C /* Pods-Project1-Instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project1-Instagram/Project1-Instagram.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQAE768Z9N;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = "Project1-Instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -484,8 +508,10 @@
 			baseConfigurationReference = DB7466BA8B8D0C60B7C196DC /* Pods-Project1-Instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project1-Instagram/Project1-Instagram.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RQAE768Z9N;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = "Project1-Instagram/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

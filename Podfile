@@ -8,12 +8,15 @@ target 'Project1-Instagram' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Firebase/Messaging'
   pod 'TWMessageBarManager'
   pod 'GoogleSignIn'
   pod 'FBSDKLoginKit'
   
   pod 'Fabric', '~> 1.7.2'
   pod 'Crashlytics', '~> 3.9.3'
+  
+  pod 'SwiftGifOrigin'
 
   # Pods for Project1-Instagram
 
