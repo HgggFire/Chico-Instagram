@@ -29,6 +29,7 @@ class CommentViewController: UIViewController {
         self.refreshControl.beginRefreshing()
         commentTable.tableFooterView = UIView()
         setupPage()
+        hideKeyboardWhenTappedOutsideCommentView()
         
 //        hideKeyboardWhenTappedAround()
         // view move up as keyboard shows
@@ -51,9 +52,6 @@ class CommentViewController: UIViewController {
         if let userinfo = notification.userInfo {
             if let keyboardSize = (userinfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 bottomConstraint.constant = -keyboardSize.height
-                print(keyboardSize.height)
-                print(bottomConstraint.constant)
-                print(bottomView.frame.maxY)
             }
             UIView.animate(withDuration: 0.1, animations: {
                 self.view.layoutIfNeeded()
@@ -90,11 +88,13 @@ class CommentViewController: UIViewController {
         
         tabBarController?.hidesBottomBarWhenPushed = true
         
-        bottomView.layer.borderColor = UIColor.darkGray.cgColor
-        bottomView.layer.borderWidth = 0.5
+        bottomView.layer.addBorder(edge: .top, color: UIColor.lightGray, thickness: 0.5)
         
         commentView.layer.cornerRadius = commentView.frame.height / 2
-//        commentView.layer.
+        commentView.clipsToBounds = true
+        
+        commentView.layer.borderColor = UIColor.darkGray.cgColor
+        commentView.layer.borderWidth = 0.5
         
         loadPage()
     }
@@ -149,6 +149,14 @@ class CommentViewController: UIViewController {
         }
         
     }
+    
+    
+    func hideKeyboardWhenTappedOutsideCommentView() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        commentTable.addGestureRecognizer(tap)
+    }
+
     
     @IBAction func likeCommentAction(_ sender: UIButton) {
     }

@@ -49,10 +49,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
             gotoHomepage()
         }
         loginButton.layer.cornerRadius = 5
-        bottomView.addBorder(toSide: .Top, withColor: UIColor.black.cgColor, andThickness: 2)
-        bottomView.addBorder(toSide: .Bottom, withColor: UIColor.black.cgColor, andThickness: 2)
-        bottomView.addBorder(toSide: .Left, withColor: UIColor.black.cgColor, andThickness: 2)
-        bottomView.addBorder(toSide: .Right, withColor: UIColor.black.cgColor, andThickness: 2)
+        bottomView.layer.addBorder(edge: .top, color: UIColor.lightGray, thickness: 0.5)
         
         googleSigninButton.style = .wide
         googleSigninButton.layer.cornerRadius = 5

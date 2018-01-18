@@ -11,6 +11,7 @@ import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseMessaging
 import TWMessageBarManager
+import GoogleSignIn
 
 // Put this piece of code anywhere you like
 extension UIViewController {
@@ -26,27 +27,32 @@ extension UIViewController {
 }
 
 // add border to one side
-extension UIView {
+extension CALayer {
     
-    // Example use: myView.addBorder(toSide: .Left, withColor: UIColor.redColor().CGColor, andThickness: 1.0)
-    
-    enum ViewSide {
-        case Left, Right, Top, Bottom
-    }
-    
-    func addBorder(toSide side: ViewSide, withColor color: CGColor, andThickness thickness: CGFloat) {
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         
         let border = CALayer()
-        border.backgroundColor = color
         
-        switch side {
-        case .Left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height); break
-        case .Right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height); break
-        case .Top: border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: thickness); break
-        case .Bottom: border.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: thickness); break
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect.init(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect.init(x: 0, y: 0, width: thickness, height: frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect.init(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+            break
+        default:
+            break
         }
         
-        layer.addSublayer(border)
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
     }
 }
 
@@ -121,6 +127,21 @@ extension UIViewController {
         print("\n\nsubscribed to topic \(Auth.auth().currentUser!.uid)")
         let controller = storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func logout() {
+        Messaging.messaging().unsubscribe(fromTopic: Auth.auth().currentUser!.uid)
+        do {
+            try Auth.auth().signOut()
+            print("sign out succesfully")
+            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Successfully logged out", type: .info, duration: 3.0)
+            navigationController?.popToRootViewController(animated: true)
+            GIDSignIn.sharedInstance().signOut()
+            tabBarController?.navigationController?.popToRootViewController(animated: true)
+        } catch {
+            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: String(describing: error), type: .error, duration: 4.0)
+            print(error)
+        }
     }
 
 }

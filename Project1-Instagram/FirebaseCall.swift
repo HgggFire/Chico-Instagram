@@ -387,6 +387,31 @@ class FirebaseCall {
     }
     
     
+    func notifyMessage(toUser uid: String, title: String, body: String) {
+        let notificationKey = databaseRef.child("notificationRequests").childByAutoId().key
+        let notification = ["message": body, "toUser": uid, "fromUser": Auth.auth().currentUser!.uid, "title": title]
+        let notificationUpdate = ["/notificationRequests/\(notificationKey)": notification]
+        databaseRef.updateChildValues(notificationUpdate)
+    }
+    
+    func storeChatMessage(fromUser: String, toUser: String, text: String) {
+        let conversationId = fromUser < toUser ? "\(fromUser)\(toUser)" : "\(toUser)\(fromUser)"
+        let timestamp = Date().timeIntervalSince1970
+        let values = ["senderId": fromUser, "text": text, "timestamp": timestamp] as [String : Any]
+        let key = databaseRef.child("Conversations").child(conversationId).childByAutoId().key
+        databaseRef.child("Conversations").child(conversationId).child(key).updateChildValues(values)
+    }
+    
+    func getMessages(ofUser1 user1: String, user2: String, completion: @escaping CompletionHandler) {
+        let conversationId = user1 < user2 ? "\(user1)\(user2)" : "\(user2)\(user1)"
+        let ref = databaseRef.child("Conversations").child(conversationId)
+        ref.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            var conversationDict : [String: Any]
+            conversationDict = snapshot.value as? [String: Any] ?? [:]
+            completion(conversationDict, nil)
+        })
+    }
+    
     func updateUserName(ofUser uid: String, name: String) {
         // set database reference
         let ref = databaseRef.child("PublicUsers").child(uid).child("name")

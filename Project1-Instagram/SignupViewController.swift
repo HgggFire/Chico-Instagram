@@ -17,7 +17,7 @@ class SignupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        bottomView.addBorder(toSide: .Top, withColor: UIColor.lightGray.cgColor, andThickness: 1)
+        bottomView.layer.addBorder(edge: .top, color: UIColor.lightGray, thickness: 0.5)
         setupCustomFbButton(customFacebookLoginButton: customFbButton)
         customFbButton.layer.cornerRadius = 5
     }

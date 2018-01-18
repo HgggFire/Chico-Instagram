@@ -37,6 +37,8 @@
 		23C042192005818D002E9F79 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C042182005818D002E9F79 /* HomeFeedCell.swift */; };
 		23C0421D2005BA16002E9F79 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C0421C2005BA16002E9F79 /* CreatePostViewController.swift */; };
 		23C0421F2005EC80002E9F79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23C0421E2005EC80002E9F79 /* GoogleService-Info.plist */; };
+		23D03E23200FD363000D1C8B /* ChatConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D03E22200FD363000D1C8B /* ChatConversationViewController.swift */; };
+		23D03E25200FE141000D1C8B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D03E24200FE141000D1C8B /* ChatCell.swift */; };
 		FC78F013635F38801244EFF2 /* Pods_Project1_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F0AD26626D0C0B790DA7D6 /* Pods_Project1_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		23C042182005818D002E9F79 /* HomeFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCell.swift; sourceTree = "<group>"; };
 		23C0421C2005BA16002E9F79 /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		23C0421E2005EC80002E9F79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		23D03E22200FD363000D1C8B /* ChatConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatConversationViewController.swift; sourceTree = "<group>"; };
+		23D03E24200FE141000D1C8B /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		DB7466BA8B8D0C60B7C196DC /* Pods-Project1-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project1-Instagram/Pods-Project1-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		F8F0AD26626D0C0B790DA7D6 /* Pods_Project1_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project1_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +130,7 @@
 				23C0420C2004877B002E9F79 /* FollowingViewController.swift */,
 				23C0420E2004879F002E9F79 /* AllUsersViewController.swift */,
 				23C0421420049262002E9F79 /* ChatViewController.swift */,
+				23D03E22200FD363000D1C8B /* ChatConversationViewController.swift */,
 				23C0421E2005EC80002E9F79 /* GoogleService-Info.plist */,
 				239A2D1D20035EDB008BBF1E /* ProfileViewController.swift */,
 				239A2D1F20035EED008BBF1E /* EditProfileViewController.swift */,
@@ -144,6 +149,7 @@
 				23C0421620049438002E9F79 /* FirebaseCall.swift */,
 				23A45DA32008911800C347A2 /* CommentCell.swift */,
 				234AB90E200AD1B600040DC3 /* Extensions.swift */,
+				23D03E24200FE141000D1C8B /* ChatCell.swift */,
 			);
 			path = "Project1-Instagram";
 			sourceTree = "<group>";
@@ -350,6 +356,8 @@
 				234AB90F200AD1B600040DC3 /* Extensions.swift in Sources */,
 				2359E8F02002B70C00C16710 /* Variables.swift in Sources */,
 				239A2D1A20032FD9008BBF1E /* SignupEmailViewController2.swift in Sources */,
+				23D03E23200FD363000D1C8B /* ChatConversationViewController.swift in Sources */,
+				23D03E25200FE141000D1C8B /* ChatCell.swift in Sources */,
 				23C0421520049262002E9F79 /* ChatViewController.swift in Sources */,
 				2359E8F62002CF1400C16710 /* SignupEmailViewController.swift in Sources */,
 			);

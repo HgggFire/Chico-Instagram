@@ -1,3 +1,6 @@
 GoogleService-info.plist
 *.xcworkspace/
 *.xcodeproj/
+nodeCode/
+meta.json
+

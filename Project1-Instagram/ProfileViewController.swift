@@ -38,6 +38,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         refreshControl.beginRefreshing()
         setupPage()
     }
@@ -137,17 +138,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            print("sign out succesfully")
-            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Successfully logged out", type: .info, duration: 3.0)
-            navigationController?.popToRootViewController(animated: true)
-            GIDSignIn.sharedInstance().signOut()
-            tabBarController?.navigationController?.popToRootViewController(animated: true)
-        } catch {
-            TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: String(describing: error), type: .error, duration: 4.0)
-            print(error)
-        }
+        logout()
+        
     }
 }
 

@@ -27,7 +27,7 @@ class SignupEmailViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupCollectionLayout()
         nextButton.layer.cornerRadius = 5
-        bottomView.addBorder(toSide: .Top, withColor: UIColor.lightGray.cgColor, andThickness: 1)
+        bottomView.layer.addBorder(edge: .top, color: UIColor.lightGray, thickness: 0.5)
     }
     
     func setupCollectionLayout() {

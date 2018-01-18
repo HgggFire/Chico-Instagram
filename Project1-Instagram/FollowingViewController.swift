@@ -24,6 +24,11 @@ class FollowingViewController: UIViewController {
         setupPage()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl.isEnabled = true
@@ -40,6 +45,7 @@ class FollowingViewController: UIViewController {
     
     func setupPage() {
         let uid = (Auth.auth().currentUser?.uid)!
+        followingTable.tableFooterView = UIView()
         FirebaseCall.sharedInstance().getFollowingUsers(ofUser: uid) { (data, error) in
             if let followingUids = data as? [String: Bool] {
                 var followingList: [FollowedUser] = []
@@ -66,6 +72,7 @@ class FollowingViewController: UIViewController {
         }
         
     }
+    
     
     @objc func unfollowUser(sender: UIButton) {
         let userTobeUnfollowed = followingUsers[sender.tag].uid
@@ -99,7 +106,6 @@ extension FollowingViewController: UITableViewDataSource, UITableViewDelegate {
         cell.profileImageView.clipsToBounds = true
         cell.profileImageView.image = #imageLiteral(resourceName: "user")
         cell.cellContainerView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        cell.cellContainerView.layer.cornerRadius = 15
         cell.button.setImage(#imageLiteral(resourceName: "delete-filled"), for: .normal)
         cell.button.tag = indexPath.row
         cell.button.addTarget(self, action: #selector(unfollowUser), for: .touchUpInside)
@@ -111,6 +117,13 @@ extension FollowingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.profileImageView.image = (image as! UIImage)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = followingUsers[indexPath.row].uid
+        let controller = storyboard?.instantiateViewController(withIdentifier: "conversationVC") as! ChatConversationViewController
+        controller.toUid = id
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     

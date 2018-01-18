@@ -27,6 +27,12 @@ struct Comment {
     let postId: String
 }
 
+struct Message {
+    let senderId: String
+    let text: String
+    let timestamp: Date
+}
+
 struct Feed {
     let id: String
     let description: String

@@ -27,6 +27,7 @@ class HomeFeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: instagtamFont]
         print(navigationController?.navigationBar.titleTextAttributes)
     }
