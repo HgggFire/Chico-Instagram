@@ -72,23 +72,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        if let messageID = userInfo["gcmMessageIDKey"] {
-            print("Message ID: \(messageID)")
-        }
         
         // Print full message.
         print(userInfo)
         
-        DeepLinkManager.shared.handleRemoteNotification(userInfo)
-        
-        // handle any deeplink
+        DeepLinkManager.shared.handleRemoteNotification(userInfo) // get sender uid
+        let notificationUid = DeepLinkManager.shared.getUid()
+        if let navc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            
+            let vc = navc.visibleViewController
+            if let vc = vc as? ChatConversationViewController {
+                if vc.toUid == notificationUid {
+                    vc.loadPage()
+                    return
+                } else {
+                    navc.popViewController(animated: false)
+                }
+            }
+        }
         DeepLinkManager.shared.checkMessage()
+        
 
         
         completionHandler(UIBackgroundFetchResult.newData)
@@ -97,23 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // This method will be called when app received push notifications in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
-        if let wd = UIApplication.shared.delegate?.window {
-            var vc = wd!.rootViewController
-            if(vc is UINavigationController){
-                vc = (vc as! UINavigationController).visibleViewController
-                
-            }
-            
-//            if vc is TabBarViewController {
-//                let vc = vc as! TabBarViewController
-//            }
-            
-            if(vc is ChatConversationViewController){
-                let vc = vc as! ChatConversationViewController
-                vc.loadPage()
-                return
-            }
-        }
         completionHandler([.alert, .badge, .sound])
     }
     
@@ -130,6 +116,16 @@ extension AppDelegate {
             
             if let navc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
                 
+                let vc = navc.visibleViewController
+                if let vc = vc as? ChatConversationViewController {
+                    if vc.toUid == uid {
+                        vc.loadPage()
+                        return
+                    } else {
+                        navc.popViewController(animated: false)
+                    }
+                }
+                
                 let conversationController = navc.storyboard?.instantiateViewController(withIdentifier: "conversationVC") as! ChatConversationViewController
                 conversationController.toUid = uid
                 navc.pushViewController(conversationController, animated: true)
@@ -141,6 +137,7 @@ extension AppDelegate {
         static let shared = DeepLinkManager()
         fileprivate init() {}
         private var fromUid: String?
+
         // check existing deepling and perform action
         func checkMessage() {
             guard let uId = fromUid else {
@@ -150,6 +147,10 @@ extension AppDelegate {
             DeeplinkNavigator.shared.gotoConversation(withUser: uId)
             // reset deeplink after handling
             self.fromUid = nil // (1)
+        }
+        
+        func getUid() -> String? {
+            return fromUid
         }
         
         func handleRemoteNotification(_ notification: [AnyHashable: Any]) {

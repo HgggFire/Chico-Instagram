@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram_background_color" translatesAutoresizingMaskIntoConstraints="NO" id="pSr-Vt-O5Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ins_background_color_inverse" translatesAutoresizingMaskIntoConstraints="NO" id="pSr-Vt-O5Z">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-0e-0qU">
@@ -31,8 +31,8 @@
                                     <constraint firstAttribute="width" constant="80" id="zrh-GH-kxf"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram_banner_white" translatesAutoresizingMaskIntoConstraints="NO" id="L90-Q6-If9">
-                                <rect key="frame" x="38" y="201" width="300" height="86.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lategram1" translatesAutoresizingMaskIntoConstraints="NO" id="L90-Q6-If9">
+                                <rect key="frame" x="29" y="187.5" width="318.5" height="100"/>
                                 <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                         </subviews>
@@ -44,10 +44,10 @@
                             <constraint firstItem="cmg-0e-0qU" firstAttribute="top" secondItem="L90-Q6-If9" secondAttribute="bottom" constant="16" id="T6b-6A-mmh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pSr-Vt-O5Z" secondAttribute="trailing" id="Yvj-K5-lvx"/>
                             <constraint firstItem="cmg-0e-0qU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="c1n-ue-sft"/>
-                            <constraint firstItem="L90-Q6-If9" firstAttribute="width" secondItem="pSr-Vt-O5Z" secondAttribute="width" multiplier="0.8" id="euY-51-1n3"/>
+                            <constraint firstItem="L90-Q6-If9" firstAttribute="width" secondItem="pSr-Vt-O5Z" secondAttribute="width" multiplier="0.85" id="euY-51-1n3"/>
                             <constraint firstItem="pSr-Vt-O5Z" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="g0Z-9X-CBv"/>
                             <constraint firstItem="pSr-Vt-O5Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pPe-5l-Xlb"/>
-                            <constraint firstItem="L90-Q6-If9" firstAttribute="height" relation="lessThanOrEqual" secondItem="pSr-Vt-O5Z" secondAttribute="height" multiplier="0.13" id="vx5-Pu-PLi"/>
+                            <constraint firstItem="L90-Q6-If9" firstAttribute="height" relation="lessThanOrEqual" secondItem="pSr-Vt-O5Z" secondAttribute="height" multiplier="0.15" id="vx5-Pu-PLi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -58,8 +58,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Ins_background_color_inverse" width="184" height="68"/>
         <image name="instagram-logo-white" width="185" height="185"/>
-        <image name="instagram_background_color" width="369" height="136"/>
-        <image name="instagram_banner_white" width="892" height="306"/>
+        <image name="lategram1" width="664" height="165"/>
     </resources>
 </document>

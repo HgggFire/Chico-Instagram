@@ -63,7 +63,7 @@ extension SignupEmailViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabcell", for: indexPath) as! MenubarCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabcell", for: indexPath) as! MenubarCollectionCell
         cell.myLabel.text = titles[indexPath.item]
         return cell
     }

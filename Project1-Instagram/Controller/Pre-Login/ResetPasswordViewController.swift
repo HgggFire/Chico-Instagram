@@ -87,7 +87,7 @@ extension ResetPasswordViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabcell", for: indexPath) as! ResetMenubarCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tabcell", for: indexPath) as! ResetMenubarCollectionCell
         cell.myLabel.text = titles[indexPath.item]
         return cell
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenubarCollectionViewCell: UICollectionViewCell {
+class MenubarCollectionCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var myBottomLineView: UIView!
     
@@ -21,7 +21,7 @@ class MenubarCollectionViewCell: UICollectionViewCell {
     
 }
 
-class ResetMenubarCollectionViewCell: UICollectionViewCell {
+class ResetMenubarCollectionCell: UICollectionViewCell {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var myBottomLineView: UIView!
     
