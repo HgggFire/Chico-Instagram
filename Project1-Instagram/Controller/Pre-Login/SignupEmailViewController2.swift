@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 import TWMessageBarManager
 
 class SignupEmailViewController2: UIViewController {
@@ -18,18 +17,15 @@ class SignupEmailViewController2: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var pwdField: UITextField!
     @IBOutlet weak var nameField: UITextField!
-    
-    var usersTableRef: DatabaseReference?
-    var publicUsersTableRef: DatabaseReference?
+    @IBOutlet weak var bottomView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
-        usersTableRef = Database.database().reference().child("Users")
-        publicUsersTableRef = Database.database().reference().child("PublicUsers")
         signupButton.layer.cornerRadius = 5
+        bottomView.layer.addBorder(edge: .top, color: .darkGray, thickness: 0.5)
     }
 
     @IBAction func signupAction(_ sender: Any) {
@@ -46,12 +42,7 @@ class SignupEmailViewController2: UIViewController {
             if error == nil {
                 if let user = firebaseUser {
                     print(user.description)
-                    let userDict = ["name": name, "email": user.email]
-                    self.usersTableRef?.child(user.uid).updateChildValues(userDict)
-                
-                    let puserDict = ["name": name, "followerCount": 0, "followingCount" : 0, "postCount": 0] as [String : Any]
-                    self.publicUsersTableRef?.child(user.uid).updateChildValues(puserDict)
-                    
+                    FirebaseCall.shared().createUserProfile(ofUser: user.uid, name: name, email: user.email)
                     TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have successfully signed up!", type: .success, duration: 3.0)
                     
                     // Go to home page
@@ -64,7 +55,10 @@ class SignupEmailViewController2: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func gotoLoginView(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
 
 extension SignupEmailViewController2 : UITextFieldDelegate{

@@ -70,12 +70,12 @@ class ChatConversationViewController: UIViewController {
         
         sendButton.titleLabel?.textColor = mainColor
         
-       FirebaseCall.sharedInstance().getUserName(of: toUid, completion: { (data, err) in
-        if err == nil {
-            self.navigationItem.title = data as? String
-        }
+       FirebaseCall.shared().getUserName(of: toUid, completion: { (data, err) in
+            if err == nil {
+                self.navigationItem.title = data as? String
+            }
         })
-        FirebaseCall.sharedInstance().getUserName(of: selfUid, completion: { (data, err) in
+        FirebaseCall.shared().getUserName(of: selfUid, completion: { (data, err) in
             if err == nil {
                 self.selfName = data as? String
             }
@@ -99,7 +99,7 @@ class ChatConversationViewController: UIViewController {
     }
     
     func loadPage() {
-        FirebaseCall.sharedInstance().getMessages(ofUser1: selfUid, user2: toUid) { (data, err) in
+        FirebaseCall.shared().getMessages(ofUser1: selfUid, user2: toUid) { (data, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -126,7 +126,7 @@ class ChatConversationViewController: UIViewController {
                 self.refreshControl.endRefreshing()
                 if self.messages.count > 0 {
                     let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                    self.messageTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                    self.messageTable.scrollToRow(at: indexPath, at: .bottom, animated: false)
                 }
             }
         }
@@ -154,7 +154,7 @@ class ChatConversationViewController: UIViewController {
         if chatTextField.text!.count == 0 {return}
         let message = chatTextField.text!
         messages.append(Message(senderId: selfUid, text: message, timestamp: Date(timeIntervalSince1970: Date().timeIntervalSince1970)))
-        FirebaseCall.sharedInstance().storeChatMessage(fromUser: selfUid, toUser: toUid, text: message)
+        FirebaseCall.shared().storeChatMessage(fromUser: selfUid, toUser: toUid, text: message)
         chatTextField.text = ""
         messageTable.reloadData()
         if message.count > 0 {
@@ -164,7 +164,7 @@ class ChatConversationViewController: UIViewController {
         
         // send notification
         if let name = selfName {
-            FirebaseCall.sharedInstance().notifyMessage(toUser: toUid, title: name, body: message)
+            FirebaseCall.shared().notifyMessage(toUser: toUid, title: name, body: message)
         }
     }
     

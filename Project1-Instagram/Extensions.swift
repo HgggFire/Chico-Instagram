@@ -91,7 +91,8 @@ extension UIViewController {
             if err == nil {
                 TWMessageBarManager.sharedInstance().hideAll()
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have logged in with Facebook succefully!", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
-                self.facebookLoginFirebase(with: FBSDKAccessToken.current())
+                guard let token = FBSDKAccessToken.current() else {return}
+                self.facebookLoginFirebase(with: token)
             } else {
                 TWMessageBarManager.sharedInstance().hideAll()
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Sign in failed", description: err!.localizedDescription, type: TWMessageBarMessageType.error, duration: 5.0, statusBarStyle: UIStatusBarStyle.default)
@@ -112,6 +113,41 @@ extension UIViewController {
                 TWMessageBarManager.sharedInstance().hideAll()
                 TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "You have logged in with Facebook succefully!", type: .info, duration: 3.0, statusBarStyle: UIStatusBarStyle.default)
                 print("successfully logged in with Facebook")
+                
+                // create user profile with facebook data if not created yet
+                let _ = FirebaseCall.shared().getProfileImage(ofUser: user!.uid, completion: { (data, err) in
+                    if err == nil {
+                        return
+                    }
+                    
+                    var name : String?
+                    var emailAdd: String?
+                    
+                    FacebookDataFetcher.sharedInstance().fetchFacebookData(parameters: [.firstName, .lastName, .largePicture], completion: { (data, err) in
+                        guard let dict = data as? [String: Any] else {return}
+                        
+                        if let fn = dict["first_name"] as? String,
+                            let ln = dict["last_name"] as? String
+                        {
+                            name = "\(fn) \(ln)"
+                        }
+                        
+                        if let email = dict["email"] as? String {
+                            emailAdd = email
+                        }
+                        
+                        FirebaseCall.shared().createUserProfile(ofUser: user!.uid, name: name, email: emailAdd)
+                        
+                        if let profileImage = FacebookDataFetcher.sharedInstance().getUIImageFromData(resultDict: dict) {
+                            FirebaseCall.shared().uploadProfileImage(ofUser: user!.uid, with: profileImage, completion: { (data, err) in
+                                if err != nil {
+                                    print(err!)
+                                }
+                            })
+                        }
+                        
+                    })
+                })
                 self.gotoHomepage()
             } else {
                 TWMessageBarManager.sharedInstance().hideAll()
@@ -122,11 +158,12 @@ extension UIViewController {
     }
     
     func gotoHomepage() {
-        
         Messaging.messaging().subscribe(toTopic: Auth.auth().currentUser!.uid)
         print("\n\nsubscribed to topic \(Auth.auth().currentUser!.uid)")
         let controller = storyboard?.instantiateViewController(withIdentifier: "tabvc") as! TabBarViewController
-        navigationController?.pushViewController(controller, animated: true)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = controller
     }
     
     func logout() {
@@ -135,9 +172,10 @@ extension UIViewController {
             try Auth.auth().signOut()
             print("sign out succesfully")
             TWMessageBarManager.sharedInstance().showMessage(withTitle: "Success", description: "Successfully logged out", type: .info, duration: 3.0)
-            navigationController?.popToRootViewController(animated: true)
             GIDSignIn.sharedInstance().signOut()
-            tabBarController?.navigationController?.popToRootViewController(animated: true)
+            let controller = storyboard?.instantiateViewController(withIdentifier: "loginVC")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = controller
         } catch {
             TWMessageBarManager.sharedInstance().showMessage(withTitle: "Error", description: String(describing: error), type: .error, duration: 4.0)
             print(error)

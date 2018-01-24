@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         Fabric.sharedSDK().debug = true
-        
+        Fabric.with([Crashlytics.self])
+
         
         // setup remote notifications
         // For iOS 10 display notification (sent via APNS)
@@ -77,22 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(userInfo)
         
         DeepLinkManager.shared.handleRemoteNotification(userInfo) // get sender uid
-        let notificationUid = DeepLinkManager.shared.getUid()
-        if let navc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-            
-            let vc = navc.visibleViewController
-            if let vc = vc as? ChatConversationViewController {
-                if vc.toUid == notificationUid {
-                    vc.loadPage()
-                    return
-                } else {
-                    navc.popViewController(animated: false)
-                }
-            }
-        }
         DeepLinkManager.shared.checkMessage()
-        
-
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -100,6 +86,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // This method will be called when app received push notifications in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
+        let userInfo = notification.request.content.userInfo
+        DeepLinkManager.shared.handleRemoteNotification(userInfo)
+        
+        if let tabBar = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController, let navc = tabBar.selectedViewController as? UINavigationController {
+            let vc = navc.visibleViewController
+            if let vc = vc as? ChatConversationViewController {
+                if vc.toUid == DeepLinkManager.shared.getUid() {
+                    vc.loadPage()
+                    return
+                }
+            }
+        }
+        
         completionHandler([.alert, .badge, .sound])
     }
     
@@ -114,16 +113,11 @@ extension AppDelegate {
         
         func gotoConversation(withUser uid: String) {
             
-            if let navc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+             if let tabBar = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController, let navc = tabBar.selectedViewController as? UINavigationController {
                 
                 let vc = navc.visibleViewController
                 if let vc = vc as? ChatConversationViewController {
-                    if vc.toUid == uid {
-                        vc.loadPage()
-                        return
-                    } else {
                         navc.popViewController(animated: false)
-                    }
                 }
                 
                 let conversationController = navc.storyboard?.instantiateViewController(withIdentifier: "conversationVC") as! ChatConversationViewController
@@ -143,7 +137,6 @@ extension AppDelegate {
             guard let uId = fromUid else {
                 return
             }
-            
             DeeplinkNavigator.shared.gotoConversation(withUser: uId)
             // reset deeplink after handling
             self.fromUid = nil // (1)

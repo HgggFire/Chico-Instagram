@@ -37,6 +37,20 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>68cae765de44388697ae0a374202753a7054d76f</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>FacebookAppID</key>
 	<string>852868051541317</string>
 	<key>FacebookDisplayName</key>
@@ -52,6 +66,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Take a photo with your camera.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save photo to your album.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose a photo from your album.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

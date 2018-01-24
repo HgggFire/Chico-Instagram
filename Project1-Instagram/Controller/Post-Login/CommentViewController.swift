@@ -102,13 +102,13 @@ class CommentViewController: UIViewController {
     func loadPage() {
         
         let uid = (Auth.auth().currentUser?.uid)!
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: uid) { (data, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: uid) { (data, err) in
             if err == nil {
                 self.profileImageView.image = (data as! UIImage)
             }
         }
         
-        FirebaseCall.sharedInstance().getAllComments(ofPost: postId) { (data, err) in
+        FirebaseCall.shared().getAllComments(ofPost: postId) { (data, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -166,7 +166,7 @@ class CommentViewController: UIViewController {
     
     @IBAction func postButtonAction(_ sender: UIButton) {
         let commentText = commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        FirebaseCall.sharedInstance().createOrDeleteComment(toPost: postId, description: commentText!, toCreate: true) { (data, err) in
+        FirebaseCall.shared().createOrDeleteComment(toPost: postId, description: commentText!, toCreate: true) { (data, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -204,7 +204,7 @@ extension CommentViewController: UITableViewDataSource, UITableViewDelegate {
         cell.likeButton.tag = indexPath.row
         cell.profileImageView.image = #imageLiteral(resourceName: "user")
         
-        FirebaseCall.sharedInstance().getUserName(of: comment.uid) { (name, err) in
+        FirebaseCall.shared().getUserName(of: comment.uid) { (name, err) in
             if err == nil {
                 if let n = name as? String {
                     cell.commentLabel.text = "\(n): \(comment.description)"
@@ -215,7 +215,7 @@ extension CommentViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: comment.uid) { (image, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: comment.uid) { (image, err) in
             if err != nil {
                 print()
                 print(err!)

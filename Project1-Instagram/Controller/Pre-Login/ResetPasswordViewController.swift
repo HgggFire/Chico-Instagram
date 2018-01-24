@@ -76,7 +76,7 @@ class ResetPasswordViewController: UIViewController {
     @IBAction func sendEmailAction(_ sender: Any) {
     }
     @IBAction func backToLoginAction(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
 }

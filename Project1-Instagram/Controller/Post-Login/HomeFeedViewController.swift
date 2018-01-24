@@ -20,7 +20,6 @@ class HomeFeedViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupRefreshControl()
-        refreshControl.beginRefreshing()
         loadPage()
         homeFeedTable.tableFooterView = UIView()
     }
@@ -47,7 +46,7 @@ class HomeFeedViewController: UIViewController {
     
     
     func loadPage() {
-        FirebaseCall.sharedInstance().getAllPosts { (data, err) in
+        FirebaseCall.shared().getAllPosts { (data, err) in
             if err != nil {return}
             let dict = data as! [String: Any]
             var feeds: [Feed] = []
@@ -87,11 +86,11 @@ class HomeFeedViewController: UIViewController {
         if homeFeeds[sender.tag].isLiked {
             homeFeeds[sender.tag].likeCount -= 1
             homeFeeds[sender.tag].isLiked = false
-            FirebaseCall.sharedInstance().dislikePost(withId: homeFeeds[sender.tag].id, completion: { (data, err) in })
+            FirebaseCall.shared().dislikePost(withId: homeFeeds[sender.tag].id, completion: { (data, err) in })
         } else {
             homeFeeds[sender.tag].likeCount += 1
             homeFeeds[sender.tag].isLiked = true
-            FirebaseCall.sharedInstance().likePost(withId: homeFeeds[sender.tag].id) { (data, err) in}
+            FirebaseCall.shared().likePost(withId: homeFeeds[sender.tag].id) { (data, err) in}
         }
         homeFeedTable.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
     }
@@ -153,7 +152,7 @@ extension HomeFeedViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.postImageView.image = #imageLiteral(resourceName: "defaultImage")
         cell.profileImageView.image = #imageLiteral(resourceName: "user")
-        FirebaseCall.sharedInstance().getUserName(of: feed.uid) { (name, err) in
+        FirebaseCall.shared().getUserName(of: feed.uid) { (name, err) in
             if err == nil {
                 if let n = name as? String {
                     cell.nameLabel.text = n
@@ -164,7 +163,7 @@ extension HomeFeedViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: feed.uid) { (image, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: feed.uid) { (image, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -173,7 +172,7 @@ extension HomeFeedViewController: UITableViewDelegate, UITableViewDataSource {
             cell.profileImageView.image = (image as! UIImage)
         }
         
-        FirebaseCall.sharedInstance().getPostImage(ofPost: feed.id) { (image, err) in
+        FirebaseCall.shared().getPostImage(ofPost: feed.id) { (image, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -188,7 +187,7 @@ extension HomeFeedViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - CreatePost VC Delegate
 extension HomeFeedViewController: CreatePostViewControllerDelegate {
     func didPost(image: UIImage, text: String) {
-        FirebaseCall.sharedInstance().createOrDeletePost(withImage: image, description: text, toCreate: true) { (key, err) in
+        FirebaseCall.shared().createOrDeletePost(withImage: image, description: text, toCreate: true) { (key, err) in
             if err == nil {
                 self.loadPage()
                 TWMessageBarManager.sharedInstance().hideAll()

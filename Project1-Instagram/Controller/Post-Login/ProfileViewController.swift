@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController {
     
     func getImage() {
         let userId = Auth.auth().currentUser?.uid
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: userId!) { (data, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: userId!) { (data, err) in
             if err == nil {
                 self.profileImage = (data as! UIImage)
             } else {

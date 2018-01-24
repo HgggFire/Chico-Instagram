@@ -31,7 +31,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UIGestureRecog
         hideKeyboardWhenTappedAround()
         setup()
         setupGoogleLogin()
-//        setupFacebookLogin()
         setupCustomFbButton()
     }
     

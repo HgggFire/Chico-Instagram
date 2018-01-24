@@ -20,7 +20,6 @@ class FollowingViewController: UIViewController {
         super.viewDidLoad()
         setupRefreshControl()
         
-        self.refreshControl.beginRefreshing()
         setupPage()
     }
     
@@ -46,12 +45,12 @@ class FollowingViewController: UIViewController {
     func setupPage() {
         let uid = (Auth.auth().currentUser?.uid)!
         followingTable.tableFooterView = UIView()
-        FirebaseCall.sharedInstance().getFollowingUsers(ofUser: uid) { (data, error) in
+        FirebaseCall.shared().getFollowingUsers(ofUser: uid) { (data, error) in
             if let followingUids = data as? [String: Bool] {
                 var followingList: [FollowedUser] = []
                 let count = followingUids.count
                 for (thisUid, _) in followingUids {
-                    FirebaseCall.sharedInstance().getPublicUserDict(ofUser: thisUid, completion: { (data, err) in
+                    FirebaseCall.shared().getPublicUserDict(ofUser: thisUid, completion: { (data, err) in
                         let followedUserDict = data as! [String: Any]
                         let name = followedUserDict["name"] as! String
                         let followedUser = FollowedUser(uid: thisUid, name: name)
@@ -77,7 +76,7 @@ class FollowingViewController: UIViewController {
     @objc func unfollowUser(sender: UIButton) {
         let userTobeUnfollowed = followingUsers[sender.tag].uid
         print("deleting friend \(userTobeUnfollowed) from \(Auth.auth().currentUser!.uid)")
-        FirebaseCall.sharedInstance().followUnfollowUser(withId: userTobeUnfollowed, toFollow: false) { (_, error) in
+        FirebaseCall.shared().followUnfollowUser(withId: userTobeUnfollowed, toFollow: false) { (_, error) in
             if let err = error {
                 print("\n\(err)")
                 TWMessageBarManager.sharedInstance().hideAll()
@@ -109,7 +108,7 @@ extension FollowingViewController: UITableViewDataSource, UITableViewDelegate {
         cell.button.setImage(#imageLiteral(resourceName: "delete-filled"), for: .normal)
         cell.button.tag = indexPath.row
         cell.button.addTarget(self, action: #selector(unfollowUser), for: .touchUpInside)
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: thisUser.uid) { (image, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: thisUser.uid) { (image, err) in
             if err != nil {
                 print(err!)
                 return

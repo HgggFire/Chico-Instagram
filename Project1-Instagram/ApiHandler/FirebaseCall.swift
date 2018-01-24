@@ -12,7 +12,7 @@ import FirebaseStorage
 import FirebaseAuth
 
 class FirebaseCall {
-    static private let instance = FirebaseCall()
+    static private let sharedInstance = FirebaseCall()
     
     var databaseRef : DatabaseReference!
     var storageRef: StorageReference!
@@ -34,8 +34,17 @@ class FirebaseCall {
         case postDoesNotExist
     }
     
-    static func sharedInstance() -> FirebaseCall {
-        return instance
+    static func shared() -> FirebaseCall {
+        return sharedInstance
+    }
+    
+    func createUserProfile(ofUser uid: String, name: String?, email: String?) {
+        let userDict = ["name": name, "email": email]
+        databaseRef.child("Users").child(uid).updateChildValues(userDict)
+        
+        let puserDict = ["name": name, "followerCount": 0, "followingCount" : 0, "postCount": 0] as [String : Any]
+        databaseRef.child("PublicUsers").child(uid).updateChildValues(puserDict)
+        
     }
     
     func getFollowingUsers(ofUser userId: String, completion: @escaping CompletionHandler) {
@@ -48,6 +57,7 @@ class FirebaseCall {
             }
         })
     }
+    
     
     func getPublicUserDict(ofUser userId: String, completion: @escaping CompletionHandler) {
         let friendsRef = databaseRef.child("PublicUsers").child(userId)
@@ -223,7 +233,8 @@ class FirebaseCall {
         metadata.contentType = "image/jpeg"
         let imageName = "\(database)/\(userId).jpeg"
         let childRef = storageRef?.child(imageName)
-        childRef?.putData(data!, metadata: metadata, completion: { (meta, error) in
+        guard let dt = data else {return}
+        childRef?.putData(dt, metadata: metadata, completion: { (meta, error) in
             completion(meta, error)
         })
     }

@@ -42,17 +42,8 @@ class AllUsersViewController: UIViewController {
     func setupPage() {
         usersTable.tableFooterView = UIView()
         let uid = (Auth.auth().currentUser?.uid)!
-//        FirebaseCall.sharedInstance().getFollowingUsers(ofUser: uid) { (data, error) in
-//            if let followingUserId = data as? [String: Bool] {
-//                var uids : [String] = []
-//                for (friendUid, _) in followingUserId {
-//                    uids.append(friendUid)
-//                }
-//                self.followingUids = uids
-//            }
-//        }
         
-        FirebaseCall.sharedInstance().getAllPublicUsersDict(completion: { (data, err) in
+        FirebaseCall.shared().getAllPublicUsersDict(completion: { (data, err) in
             if err != nil {
                 print()
                 print(err!)
@@ -87,7 +78,7 @@ class AllUsersViewController: UIViewController {
     @objc func followUser(sender: UIButton) {
         let userTobeFollowed = users[sender.tag].uid
         print("following \(userTobeFollowed)")
-        FirebaseCall.sharedInstance().followUnfollowUser(withId: userTobeFollowed, toFollow: true) { (_, error) in
+        FirebaseCall.shared().followUnfollowUser(withId: userTobeFollowed, toFollow: true) { (_, error) in
             if let err = error { print("\n\(err)") }
             
         }
@@ -112,8 +103,7 @@ extension AllUsersViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.nameLabel.text = thisUser.uid == Auth.auth().currentUser!.uid ? "You" : thisUser.name
         
-        cell.cellContainerView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-//        cell.cellContainerView.layer.cornerRadius = 15
+        cell.cellContainerView.backgroundColor = UIColor(white: 1, alpha: 0.5)
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width / 2
         cell.profileImageView.clipsToBounds = true
         cell.profileImageView.image = #imageLiteral(resourceName: "user")
@@ -130,7 +120,7 @@ extension AllUsersViewController: UITableViewDataSource, UITableViewDelegate {
             cell.button.isEnabled = true
             cell.button.addTarget(self, action: #selector(followUser), for: .touchUpInside)
         }
-        FirebaseCall.sharedInstance().getProfileImage(ofUser: thisUser.uid) { (image, err) in
+        FirebaseCall.shared().getProfileImage(ofUser: thisUser.uid) { (image, err) in
             if err != nil {
                 print(err!)
                 return

@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 import TWMessageBarManager
+import Photos
 
 protocol EditProfileViewControllerDelegate {
     func didUpdate()
@@ -18,7 +19,7 @@ protocol EditProfileViewControllerDelegate {
 
 class EditProfileViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     var image : UIImage!
     var name: String!
@@ -32,17 +33,14 @@ class EditProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setupPage()
     }
     
+    
     func setupPage() {
-        imageView.layer.cornerRadius = 60
-        imageView.clipsToBounds = true
-        imageView.image = image
+        myImageView.layer.cornerRadius = 60
+        myImageView.clipsToBounds = true
+        myImageView.image = image
         nameField.text = name
         
         dbRef = Database.database().reference()
@@ -52,7 +50,7 @@ class EditProfileViewController: UIViewController {
     @IBAction func changePhotoAction(_ sender: Any) {
         // Show options for the source picker only if the camera is available.
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            presentPhotoPicker(sourceType: .photoLibrary)
+            self.presentPhotoPicker(sourceType: .photoLibrary)
             return
         }
         
@@ -68,7 +66,8 @@ class EditProfileViewController: UIViewController {
         photoSourcePicker.addAction(choosePhoto)
         photoSourcePicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        present(photoSourcePicker, animated: true)
+        self.present(photoSourcePicker, animated: true)
+        
     }
     
     func presentPhotoPicker(sourceType: UIImagePickerControllerSourceType) {
@@ -79,10 +78,10 @@ class EditProfileViewController: UIViewController {
     }
     
     func uploadImage() {
-        if let img = imageView.image,
+        if let img = myImageView.image,
             let uid = Auth.auth().currentUser?.uid {
             profileImageDict[uid] = img
-            FirebaseCall.sharedInstance().uploadProfileImage(ofUser: uid, with: img, completion: { (meta, error) in
+            FirebaseCall.shared().uploadProfileImage(ofUser: uid, with: img, completion: { (meta, error) in
                 if (error != nil) {
                     print("\nUpload Profile Image Error: \(error!)")
                 } else {
@@ -115,7 +114,7 @@ class EditProfileViewController: UIViewController {
         
         userNameDict[user.uid] = newName
         delegate?.didUpdate()
-        FirebaseCall.sharedInstance().updateUserName(ofUser: user.uid, name: newName)
+        FirebaseCall.shared().updateUserName(ofUser: user.uid, name: newName)
         
         uploadImage()
         
@@ -128,16 +127,16 @@ class EditProfileViewController: UIViewController {
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //imagePickerController delegate methods
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         picker.dismiss(animated: true)
         
         // We always expect `imagePickerController(:didFinishPickingMediaWithInfo:)` to supply the original image.
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.image = image
+        myImageView.image = image
     }
     
     //imagePickerController delegate methods
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    @objc func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
         print("cancel")
     }

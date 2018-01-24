@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KP7-8K-ZfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501.5999999999999" y="-743.47826086956525"/>
+            <point key="canvasLocation" x="1510" y="630"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="u53-mV-zTc">
@@ -481,7 +481,7 @@
                         <viewLayoutGuide key="safeArea" id="87K-ak-yuv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lategram" id="tui-oI-ASu">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="daQ-eU-deq">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="daQ-eU-deq">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addFeedAction:" destination="nd7-K9-eqY" id="0iK-5u-8MO"/>
@@ -832,13 +832,13 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ins_background_color_inverse" translatesAutoresizingMaskIntoConstraints="NO" id="7jr-uq-N9a">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lategram2" translatesAutoresizingMaskIntoConstraints="NO" id="hcS-zD-e5E">
-                                        <rect key="frame" x="94" y="46" width="187.5" height="74.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lategram1" translatesAutoresizingMaskIntoConstraints="NO" id="hcS-zD-e5E">
+                                        <rect key="frame" x="66" y="46" width="243.5" height="74.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="hcS-zD-e5E" firstAttribute="width" secondItem="fK0-I6-wbZ" secondAttribute="width" multiplier="0.5" id="2yp-v4-mOQ"/>
+                                    <constraint firstItem="hcS-zD-e5E" firstAttribute="width" secondItem="fK0-I6-wbZ" secondAttribute="width" multiplier="0.65" id="2yp-v4-mOQ"/>
                                     <constraint firstItem="hcS-zD-e5E" firstAttribute="height" secondItem="fK0-I6-wbZ" secondAttribute="height" multiplier="0.45" id="E1y-Mk-vso"/>
                                     <constraint firstItem="7jr-uq-N9a" firstAttribute="leading" secondItem="fK0-I6-wbZ" secondAttribute="leading" id="MtO-iZ-mXL"/>
                                     <constraint firstItem="7jr-uq-N9a" firstAttribute="top" secondItem="fK0-I6-wbZ" secondAttribute="top" id="Thz-zI-h5T"/>
@@ -1052,8 +1052,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ins_background_color_inverse" translatesAutoresizingMaskIntoConstraints="NO" id="ZyV-l1-trn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lategram2" translatesAutoresizingMaskIntoConstraints="NO" id="MzG-AQ-wN4">
-                                        <rect key="frame" x="94" y="75.5" width="187.5" height="75"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lategram1" translatesAutoresizingMaskIntoConstraints="NO" id="MzG-AQ-wN4">
+                                        <rect key="frame" x="66" y="75.5" width="243.5" height="75"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to see photos and  videos from your friends." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfk-ui-lkn">
                                         <rect key="frame" x="37.5" y="155.5" width="300" height="36"/>
@@ -1077,7 +1077,7 @@
                                     <constraint firstItem="yfp-eN-Aq0" firstAttribute="top" secondItem="wfk-ui-lkn" secondAttribute="bottom" id="5Zx-vw-A2a"/>
                                     <constraint firstItem="wfk-ui-lkn" firstAttribute="width" secondItem="f3w-Bl-NDG" secondAttribute="width" multiplier="0.8" id="8Qy-EA-z2F"/>
                                     <constraint firstItem="MzG-AQ-wN4" firstAttribute="top" secondItem="stm-VT-kHq" secondAttribute="bottom" id="9yA-6q-ETO"/>
-                                    <constraint firstItem="MzG-AQ-wN4" firstAttribute="width" secondItem="f3w-Bl-NDG" secondAttribute="width" multiplier="0.5" id="G7Q-NB-lW5"/>
+                                    <constraint firstItem="MzG-AQ-wN4" firstAttribute="width" secondItem="f3w-Bl-NDG" secondAttribute="width" multiplier="0.65" id="G7Q-NB-lW5"/>
                                     <constraint firstItem="wfk-ui-lkn" firstAttribute="top" secondItem="MzG-AQ-wN4" secondAttribute="bottom" constant="5" id="JUi-nO-C6G"/>
                                     <constraint firstItem="MzG-AQ-wN4" firstAttribute="height" secondItem="f3w-Bl-NDG" secondAttribute="height" multiplier="0.28" id="Ku3-Tb-gEp"/>
                                     <constraint firstItem="yfp-eN-Aq0" firstAttribute="height" secondItem="stm-VT-kHq" secondAttribute="height" id="Nfn-Oa-84m"/>
@@ -1484,7 +1484,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="emailNextButtonAction:" destination="Nr1-MG-dBj" eventType="touchUpInside" id="zXn-mv-vZF"/>
                                     <action selector="signupAction:" destination="OP3-9r-xWL" eventType="touchUpInside" id="0Nd-r6-3ws"/>
                                 </connections>
                             </button>
@@ -1513,24 +1512,24 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-Ud-vk9" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="613.5" width="375" height="53.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNj-tC-l7E">
-                                        <rect key="frame" x="80.5" y="16" width="214.5" height="29"/>
+                                        <rect key="frame" x="80.5" y="13" width="214.5" height="29"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H35-oZ-w1q">
-                                        <rect key="frame" x="80.5" y="21.5" width="165.5" height="17"/>
+                                        <rect key="frame" x="80.5" y="18.5" width="165.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1K-AZ-h7e">
-                                        <rect key="frame" x="251" y="16" width="44" height="29"/>
+                                        <rect key="frame" x="251" y="13" width="44" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
-                                            <action selector="gotoLoginView:" destination="Nr1-MG-dBj" eventType="touchUpInside" id="H7z-ix-igY"/>
+                                            <action selector="gotoLoginView:" destination="OP3-9r-xWL" eventType="touchUpInside" id="sR0-45-Kw4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1554,7 +1553,7 @@
                             <constraint firstItem="dPC-No-QPB" firstAttribute="centerX" secondItem="mA9-hi-XCz" secondAttribute="centerX" id="8wG-wN-GAD"/>
                             <constraint firstItem="WCp-i0-epm" firstAttribute="centerX" secondItem="mA9-hi-XCz" secondAttribute="centerX" id="9jm-93-8ow"/>
                             <constraint firstItem="dPC-No-QPB" firstAttribute="width" secondItem="1WL-j5-X5P" secondAttribute="width" id="Egg-Vi-sd5"/>
-                            <constraint firstItem="MBl-Ud-vk9" firstAttribute="height" secondItem="mA9-hi-XCz" secondAttribute="height" multiplier="0.09" id="EoS-yt-LlB"/>
+                            <constraint firstItem="MBl-Ud-vk9" firstAttribute="height" secondItem="mA9-hi-XCz" secondAttribute="height" multiplier="0.08" id="EoS-yt-LlB"/>
                             <constraint firstItem="kRp-Rj-WpA" firstAttribute="width" secondItem="12z-Yv-R4J" secondAttribute="width" id="FQc-jx-eA1"/>
                             <constraint firstItem="1WL-j5-X5P" firstAttribute="width" secondItem="mA9-hi-XCz" secondAttribute="width" multiplier="0.7" id="G2p-gp-ObP"/>
                             <constraint firstAttribute="trailing" secondItem="MBl-Ud-vk9" secondAttribute="trailing" id="G4a-1G-byg"/>
@@ -1573,6 +1572,7 @@
                         <viewLayoutGuide key="safeArea" id="QX6-2x-WPN"/>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="MBl-Ud-vk9" id="4Rm-iu-V8c"/>
                         <outlet property="nameField" destination="kRp-Rj-WpA" id="IRm-H6-7d2"/>
                         <outlet property="pwdField" destination="12z-Yv-R4J" id="bZl-MB-tw5"/>
                         <outlet property="signupButton" destination="WCp-i0-epm" id="X4z-UD-CAD"/>
@@ -1580,7 +1580,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1y7-Ci-zl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1961" y="1404"/>
+            <point key="canvasLocation" x="-1962.4000000000001" y="1403.7481259370315"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="mz5-t7-Xcc">
@@ -1590,7 +1590,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="gPh-1P-Uf8" kind="relationship" relationship="viewControllers" id="8cf-Lj-kkG"/>
@@ -1707,34 +1707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyB-fH-zI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="-54"/>
-        </scene>
-        <!--Chat-->
-        <scene sceneID="tXK-7b-2ns">
-            <objects>
-                <viewController id="MuN-8F-QAj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ta5-SE-3Qf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ins_background_color_inverse" translatesAutoresizingMaskIntoConstraints="NO" id="wFI-VE-ChV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.79240788600000001" blue="0.78750695859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="wFI-VE-ChV" firstAttribute="leading" secondItem="vwa-2V-oEB" secondAttribute="leading" id="KHo-qw-ug1"/>
-                            <constraint firstAttribute="bottom" secondItem="wFI-VE-ChV" secondAttribute="bottom" id="QRa-6w-GNk"/>
-                            <constraint firstItem="vwa-2V-oEB" firstAttribute="trailing" secondItem="wFI-VE-ChV" secondAttribute="trailing" id="z1Y-OT-CKA"/>
-                            <constraint firstItem="wFI-VE-ChV" firstAttribute="top" secondItem="ta5-SE-3Qf" secondAttribute="top" id="zbm-6z-L7O"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vwa-2V-oEB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Chat" id="OCT-KX-Pa6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LsI-TS-vam" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1502" y="630"/>
+            <point key="canvasLocation" x="1510" y="-743"/>
         </scene>
         <!--Chat Conversation View Controller-->
         <scene sceneID="G8o-me-chL">
@@ -2236,7 +2209,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="e9w-rz-NwP" id="Ois-HT-zjX"/>
+                        <outlet property="myImageView" destination="e9w-rz-NwP" id="ZPd-P3-SXf"/>
                         <outlet property="nameField" destination="gbr-tR-vQO" id="tDu-TZ-fL8"/>
                     </connections>
                 </viewController>
@@ -2247,7 +2220,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9Xk-Qk-UJ1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wr5-Gw-83t" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" id="Wr5-Gw-83t" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Sg-1s-ONz">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2266,7 +2239,7 @@
         <scene sceneID="mWo-Cm-68t">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gPh-1P-Uf8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home-filled" id="lEz-38-3dp"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home-filled" id="lEz-38-3dp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0tM-ZP-gom">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2285,7 +2258,7 @@
         <scene sceneID="Py1-IZ-RH2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2bt-8s-CuE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="user-account-filled" id="A4l-YZ-u0s"/>
+                    <tabBarItem key="tabBarItem" title="" image="search" selectedImage="search-filled" id="A4l-YZ-u0s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P0G-RX-Nbs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2293,7 +2266,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="IPg-Aq-KDz" kind="relationship" relationship="rootViewController" id="I8d-zW-Vug"/>
+                        <segue destination="SXP-U0-BBH" kind="relationship" relationship="rootViewController" id="NIT-Jj-3u2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUM-jJ-d3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2304,16 +2277,13 @@
         <scene sceneID="XGx-1T-YUs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KYE-Br-CUe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="people-filled" id="SYO-IQ-mXW"/>
+                    <tabBarItem key="tabBarItem" title="" image="add-new" selectedImage="add-new-filled" id="SYO-IQ-mXW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e0s-ia-qAa">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SXP-U0-BBH" kind="relationship" relationship="rootViewController" id="sz0-MO-cMM"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGd-AV-OKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2323,7 +2293,7 @@
         <scene sceneID="b5o-PZ-gBG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z4e-Zv-M8d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="chat-bubble-filled" id="uCx-6f-RaW"/>
+                    <tabBarItem key="tabBarItem" title="" image="heart" selectedImage="heart-filled" id="uCx-6f-RaW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VYV-IZ-Zrv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2331,7 +2301,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MuN-8F-QAj" kind="relationship" relationship="rootViewController" id="VOU-5y-jGf"/>
+                        <segue destination="IPg-Aq-KDz" kind="relationship" relationship="rootViewController" id="YF4-ZF-dcg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="an0-4v-VZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2342,7 +2312,7 @@
         <scene sceneID="jqT-78-c8K">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tfG-M9-pqw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="customer-filled" id="9l5-cG-vVO"/>
+                    <tabBarItem key="tabBarItem" title="" image="customer" selectedImage="customer-filled" id="9l5-cG-vVO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pyz-Qj-vrU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2378,21 +2348,25 @@
     </scenes>
     <resources>
         <image name="Ins_background_color_inverse" width="184" height="68"/>
+        <image name="add-new" width="33" height="33"/>
+        <image name="add-new-filled" width="33" height="33"/>
         <image name="backgroundTexture" width="640" height="340"/>
-        <image name="chat-bubble-filled" width="33" height="33"/>
+        <image name="customer" width="33" height="33"/>
         <image name="customer-filled" width="33" height="33"/>
         <image name="defaultImage" width="190" height="107"/>
         <image name="fbIcon" width="600" height="600"/>
+        <image name="heart" width="33" height="33"/>
         <image name="heart-filled" width="33" height="33"/>
+        <image name="home" width="33" height="33"/>
         <image name="home-filled" width="33" height="33"/>
         <image name="icons8-bookmark-100" width="33" height="33"/>
         <image name="icons8-sent-100" width="33" height="33"/>
         <image name="icons8-topic-100" width="33" height="33"/>
-        <image name="lategram2" width="584" height="185"/>
+        <image name="lategram1" width="664" height="165"/>
         <image name="lock" width="100" height="100"/>
-        <image name="people-filled" width="33" height="33"/>
+        <image name="search" width="33" height="33"/>
+        <image name="search-filled" width="33" height="33"/>
         <image name="settings" width="50" height="50"/>
         <image name="user" width="225" height="225"/>
-        <image name="user-account-filled" width="33" height="33"/>
     </resources>
 </document>
